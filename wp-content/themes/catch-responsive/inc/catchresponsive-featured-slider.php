@@ -187,7 +187,7 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 5" href="#">
-							<span>Capacitación </span>
+							<span>Capacitación Local 258</span>
 							</a>
 							</h1>
 							</header>
