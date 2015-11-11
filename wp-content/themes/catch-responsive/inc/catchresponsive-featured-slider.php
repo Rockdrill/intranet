@@ -106,11 +106,13 @@ function catchresponsive_demo_slider( $options ) {
 									<div class="entry-container">
 										<header class="entry-header">
 											<h1 class="entry-title">
-												<a title="Slider Image 1" href="#"><span>Slider Image 1</span></a>
+												<a title="Slider Image 1" href="#">
+												<span>Capacitación de Campo</span>
+												</a>
 											</h1>
 										</header>
 										<div class="entry-content">
-											<p>Slider Image 1 Content</p>
+											<p>rockdrillgroup.net</p>
 										</div>   
 									</div>             
 								</article><!-- .slides --> 	
@@ -122,14 +124,16 @@ function catchresponsive_demo_slider( $options ) {
 										</a>
 									</figure>
 									<div class="entry-container">
-										<header class="entry-header">
-											<h1 class="entry-title">
-												<a title="Slider Image 2" href="#"><span>Slider Image 2</span></a>
-											</h1>
-										</header>
-										<div class="entry-content">
-											<p>Slider Image 2 Content</p>
-										</div>   
+									<header class="entry-header">
+									<h1 class="entry-title">
+									<a title="Slider Image 2" href="#">
+									<span>Capacitación de SIG</span>
+									</a>
+									</h1>
+									</header>
+									<div class="entry-content">
+									<p>rockdrillgroup.net</p>
+									</div>   
 									</div>             
 								</article><!-- .slides --> ';
 	return $catchresponsive_demo_slider;
