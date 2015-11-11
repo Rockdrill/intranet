@@ -177,6 +177,26 @@ function catchresponsive_demo_slider( $options ) {
 							</div>             
 							</article>
 
+							<article class="post hentry slides demo-image displaynone">
+							<figure class="Slider Image 5">
+							<a title="Slider Image 5" href="'. esc_url( home_url( '/' ) ) .'">
+							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-5.png" class="wp-post-image" alt="Slider Image 5" title="Slider Image 5">
+							</a>
+							</figure>
+							<div class="entry-container">
+							<header class="entry-header">
+							<h1 class="entry-title">
+							<a title="Slider Image 5" href="#">
+							<span>Capacitación </span>
+							</a>
+							</h1>
+							</header>
+							<div class="entry-content">
+							<p>rockdrillgroup.net</p>
+							</div>   
+							</div>             
+							</article>
+
 								<!-- .slides --> ';
 	return $catchresponsive_demo_slider;
 }
