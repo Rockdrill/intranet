@@ -127,7 +127,7 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 2" href="#">
-							<span>Capacitación de SIG</span>
+							<span>Capacitación de SIG Contrato</span>
 							</a>
 							</h1>
 							</header>
