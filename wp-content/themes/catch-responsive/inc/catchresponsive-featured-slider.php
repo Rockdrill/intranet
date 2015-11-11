@@ -157,6 +157,26 @@ function catchresponsive_demo_slider( $options ) {
 							</div>             
 							</article>
 
+							<article class="post hentry slides demo-image displaynone">
+							<figure class="Slider Image 4">
+							<a title="Slider Image 4" href="'. esc_url( home_url( '/' ) ) .'">
+							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-4.png" class="wp-post-image" alt="Slider Image 4" title="Slider Image 4">
+							</a>
+							</figure>
+							<div class="entry-container">
+							<header class="entry-header">
+							<h1 class="entry-title">
+							<a title="Slider Image 4" href="#">
+							<span>Capacitación ISO-Patio Central</span>
+							</a>
+							</h1>
+							</header>
+							<div class="entry-content">
+							<p>rockdrillgroup.net</p>
+							</div>   
+							</div>             
+							</article>
+
 								<!-- .slides --> ';
 	return $catchresponsive_demo_slider;
 }
