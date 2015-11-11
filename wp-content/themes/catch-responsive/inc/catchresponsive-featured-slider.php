@@ -117,25 +117,47 @@ function catchresponsive_demo_slider( $options ) {
 									</div>             
 								</article><!-- .slides --> 	
 								
-								<article class="post hentry slides demo-image displaynone">
-									<figure class="Slider Image 2">
-										<a title="Slider Image 2" href="'. esc_url( home_url( '/' ) ) .'">
-											<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-2.png" class="wp-post-image" alt="Slider Image 2" title="Slider Image 2">
-										</a>
-									</figure>
-									<div class="entry-container">
-									<header class="entry-header">
-									<h1 class="entry-title">
-									<a title="Slider Image 2" href="#">
-									<span>Capacitación de SIG</span>
-									</a>
-									</h1>
-									</header>
-									<div class="entry-content">
-									<p>rockdrillgroup.net</p>
-									</div>   
-									</div>             
-								</article><!-- .slides --> ';
+							<article class="post hentry slides demo-image displaynone">
+							<figure class="Slider Image 2">
+							<a title="Slider Image 2" href="'. esc_url( home_url( '/' ) ) .'">
+							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-2.png" class="wp-post-image" alt="Slider Image 2" title="Slider Image 2">
+							</a>
+							</figure>
+							<div class="entry-container">
+							<header class="entry-header">
+							<h1 class="entry-title">
+							<a title="Slider Image 2" href="#">
+							<span>Capacitación de SIG</span>
+							</a>
+							</h1>
+							</header>
+							<div class="entry-content">
+							<p>rockdrillgroup.net</p>
+							</div>   
+							</div>             
+							</article>
+
+							<article class="post hentry slides demo-image displaynone">
+							<figure class="Slider Image 3">
+							<a title="Slider Image 3" href="'. esc_url( home_url( '/' ) ) .'">
+							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-3.png" class="wp-post-image" alt="Slider Image 3" title="Slider Image 3">
+							</a>
+							</figure>
+							<div class="entry-container">
+							<header class="entry-header">
+							<h1 class="entry-title">
+							<a title="Slider Image 3" href="#">
+							<span>Capacitación Riesgos de Oficina</span>
+							</a>
+							</h1>
+							</header>
+							<div class="entry-content">
+							<p>rockdrillgroup.net</p>
+							</div>   
+							</div>             
+							</article>
+
+								<!-- .slides --> ';
 	return $catchresponsive_demo_slider;
 }
 endif; // catchresponsive_demo_slider
