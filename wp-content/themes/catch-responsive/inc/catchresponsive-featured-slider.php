@@ -97,25 +97,25 @@ if ( ! function_exists( 'catchresponsive_demo_slider' ) ) :
  */
 function catchresponsive_demo_slider( $options ) {
 	$catchresponsive_demo_slider ='
-								<article class="post hentry slides demo-image displayblock">
-									<figure class="slider-image">
-										<a title="Slider Image 1" href="'. esc_url( home_url( '/' ) ) .'">
-											<img src="'.get_template_directory_uri().'/images/gallery/slide/slide-1.png" class="wp-post-image" alt="Slider Image 1" title="Slider Image 1">
-										</a>
-									</figure>
-									<div class="entry-container">
-										<header class="entry-header">
-											<h1 class="entry-title">
-												<a title="Slider Image 1" href="#">
-												<span>Capacitación de Campo</span>
-												</a>
-											</h1>
-										</header>
-										<div class="entry-content">
-											<p>rockdrillgroup.net</p>
-										</div>   
-									</div>             
-								</article><!-- .slides --> 	
+							<article class="post hentry slides demo-image displayblock">
+							<figure class="slider-image">
+							<a title="Slider Image 1" href="'. esc_url( home_url( '/' ) ) .'">
+							<img src="'.get_template_directory_uri().'/images/gallery/slide/slide-1.png" class="wp-post-image" alt="Slider Image 1" title="Slider Image 1">
+							</a>
+							</figure>
+							<div class="entry-container">
+							<header class="entry-header">
+							<h1 class="entry-title">
+							<a title="Slider Image 1" href="#">
+							<span>Nombramiento de Brigadas de Emergencia</span>
+							</a>
+							</h1>
+							</header>
+							<div class="entry-content">
+							<p>Representantes de las 4 Brigadas de Emergencia</p>
+							</div>   
+							</div>             
+							</article><!-- .slides --> 	
 								
 							<article class="post hentry slides demo-image displaynone">
 							<figure class="Slider Image 2">
@@ -127,12 +127,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 2" href="#">
-							<span>Capacitación de SIG Contrato</span>
+							<span>Capacitación de la Ley 29783 - Ley de Seguridad y Salud en el Trabajo</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>rockdrillgroup.net</p>
+							<p>Jefes y resposables de áreas</p>
 							</div>   
 							</div>             
 							</article>
@@ -147,12 +147,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 3" href="#">
-							<span>Capacitación Riesgos de Oficina</span>
+							<span>Nombramiento de Brigadas de Emergencia</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>rockdrillgroup.net</p>
+							<p>Representantes de las 4 Brigadas de Emergencia</p>
 							</div>   
 							</div>             
 							</article>
@@ -167,12 +167,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 4" href="#">
-							<span>Capacitación ISO-Patio Central</span>
+							<span>Capacitación de la Campaña de Reciclaje de Papel en la Empresa</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>rockdrillgroup.net</p>
+							<p>Representante de Aldeas Infantiles y Gerente de Administración y Finanzas</p>
 							</div>   
 							</div>             
 							</article>
@@ -187,12 +187,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 5" href="#">
-							<span>Capacitación Local 258</span>
+							<span>Dinamica - Trabajo en Equipo</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>rockdrillgroup.net</p>
+							<p>A cargo del área de Psicología Ocupacional - María Tello</p>
 							</div>   
 							</div>             
 							</article>
