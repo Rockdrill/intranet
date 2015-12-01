@@ -16,12 +16,12 @@ get_header(); ?>
 			<div class="entry-container">
 				
 				<header class="entry-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'catch-responsive' ); ?></h1>
+					<h1 class="page-title"><?php _e( 'La página que usted busca no existe.', 'catch-responsive' ); ?></h1>
 				</header>
 
 				<div class="entry-content">
 				
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'catch-responsive' ); ?></p>
+					<p><?php _e( 'Puede utilizar el buscador para encontrar lo que necesita', 'catch-responsive' ); ?></p>
 
 					<?php get_search_form(); ?>
 
