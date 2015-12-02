@@ -147,12 +147,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 3" href="#">
-							<span>Nombramiento de Brigadas de Emergencia</span>
+							<span>Nombramiento de la Política de Calidad y SSOMA.</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>Representantes de las 4 Brigadas de Emergencia</p>
+							<p>Todos los Colaboradores</p>
 							</div>   
 							</div>             
 							</article>
