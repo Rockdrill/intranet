@@ -17,19 +17,19 @@ class SimpleUserLogger extends SimpleLogger {
 	function getInfo() {
 
 		$arr_info = array(
-			"name" => "User Logger",
-			"description" => "Logs user logins, logouts, and failed logins",
+			"name" => __("User Logger", "simple-history"),
+			"description" => __("Logs user logins, logouts, and failed logins", "simple-history"),
 			"capability" => "edit_users",
 			"messages" => array(
-				'user_login_failed' => __('Failed to login to account with username "{login_user_login}" because an incorrect password was entered', "simple-history"),
-				'user_unknown_login_failed' => __('Failed to login with username "{failed_login_username}" because no user with that username exists', "simple-history"),
+				'user_login_failed' => __('Failed to login with username "{login}" (incorrect password entered)', "simple-history"),
+				'user_unknown_login_failed' => __('Failed to login with username "{failed_username}" (username does not exist)', "simple-history"),
 				'user_logged_in' => __('Logged in', "simple-history"),
 				'user_unknown_logged_in' => __("Unknown user logged in", "simple-history"),
 				'user_logged_out' => __("Logged out", "simple-history"),
 				'user_updated_profile' => __("Edited the profile for user {edited_user_login} ({edited_user_email})", "simple-history"),
 				'user_created' => __("Created user {created_user_login} ({created_user_email}) with role {created_user_role}", "simple-history"),
 				'user_deleted' => __("Deleted user {deleted_user_login} ({deleted_user_email})", "simple-history"),
-				"user_password_reseted" => __("Reseted their password", "simple-history"),
+				"user_password_reseted" => __("Reset their password", "simple-history"),
 				"user_requested_password_reset_link" => __("Requested a password reset link for user with login '{user_login}' and email '{user_email}'", "simple-history"),
 
 				/*
@@ -143,12 +143,12 @@ class SimpleUserLogger extends SimpleLogger {
 				"message" => $message,
 				"key" => $key,
 				"user_login" => $user_login,
-				"user_data" => $user_data,
+				// "user_data" => $user_data,
 				"GET" => $_GET,
 				"POST" => $_POST
 			);
 
-			if ( is_a($user_data, "WP_User") ) {
+			if ( is_a( $user_data, "WP_User" ) ) {
 
 				$context["user_email"] = $user_data->user_email;
 
@@ -186,10 +186,12 @@ class SimpleUserLogger extends SimpleLogger {
 		$context = array();
 
 		if ( is_a( $user, "WP_User") ) {
+			
 			$context["_initiator"] = SimpleLoggerLogInitiators::WP_USER;
 			$context["_user_id"] = $user->ID;
 			$context["_user_login"] = $user->user_login;
 			$context["_user_email"] = $user->user_email;
+
 		}
 
 		if ( isset($_POST['pass1']) && $_POST['pass1'] != $_POST['pass2'] ) {
@@ -304,20 +306,22 @@ class SimpleUserLogger extends SimpleLogger {
 		$output = parent::getLogRowPlainTextOutput($row);
 		$current_user_id = get_current_user_id();
 
-		if ("user_updated_profile" == $context["_message_key"]) {
+		if ( "user_updated_profile" == $context["_message_key"] ) {
 
-			$wp_user = get_user_by("id", $context["edited_user_id"]);
+			$wp_user = get_user_by( "id", $context["edited_user_id"] );
 
 			// If edited_user_id and _user_id is the same then a user edited their own profile
 			// Note: it's not the same thing as the currently logged in user (but.. it can be!)
-			if ($context["edited_user_id"] === $context["_user_id"]) {
+			if ( ! empty( $context["_user_id"] ) && $context["edited_user_id"] === $context["_user_id"] ) {
 
-				if ($wp_user) {
+				if ( $wp_user ) {
 
 					$context["edit_profile_link"] = get_edit_user_link($wp_user->ID);
 
+					$use_you = apply_filters("simple_history/user_logger/plain_text_output_use_you", true);
+
 					// User still exist, so link to their profile
-					if ($current_user_id === $context["_user_id"]) {
+					if ( $current_user_id === $context["_user_id"] && $use_you ) {
 
 						// User that is viewing the log is the same as the edited user
 						$msg = __('Edited <a href="{edit_profile_link}">your profile</a>', "simple-history");
@@ -478,19 +482,15 @@ class SimpleUserLogger extends SimpleLogger {
 	function on_wp_authenticate_user($user, $password) {
 
 		// Only log failed attempts
-		if (!wp_check_password($password, $user->user_pass, $user->ID)) {
+		if ( ! wp_check_password( $password, $user->user_pass, $user->ID ) ) {
 
 			// Overwrite some vars that Simple History set automagically
 			$context = array(
 				"_initiator" => SimpleLoggerLogInitiators::WEB_USER,
-				"_user_id" => null,
-				"_user_login" => null,
-				"_user_email" => null,
-				"login_user_id" => $user->ID,
-				"login_user_email" => $user->user_email,
-				"login_user_login" => $user->user_login,
+				"login_id" => $user->ID,
+				"login_email" => $user->user_email,
+				"login" => $user->user_login,
 				"server_http_user_agent" => isset( $_SERVER["HTTP_USER_AGENT"] ) ? $_SERVER["HTTP_USER_AGENT"] : null,
-				//"_occasionsID" => __CLASS__  . '/' . __FUNCTION__ . "/failed_user_login/userid:{$user->ID}"
 				"_occasionsID" => __CLASS__ . '/failed_user_login',
 			);
 
@@ -504,7 +504,8 @@ class SimpleUserLogger extends SimpleLogger {
 			 */
 			$log_password = false;
 			$log_password = apply_filters("simple_history/comments_logger/log_failed_password", $log_password);
-			if ($log_password) {
+
+			if ( $log_password ) {
 				$context["login_user_password"] = $password;
 			}
 
@@ -547,7 +548,7 @@ class SimpleUserLogger extends SimpleLogger {
 
 			$context = array(
 				"_initiator" => SimpleLoggerLogInitiators::WEB_USER,
-				"failed_login_username" => $username,
+				"failed_username" => $username,
 				"server_http_user_agent" => isset( $_SERVER["HTTP_USER_AGENT"] ) ? $_SERVER["HTTP_USER_AGENT"] : null,
 				// count all failed logins to unknown users as the same occasions,
 				// to prevent log being flooded with login/hack attempts
