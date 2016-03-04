@@ -107,12 +107,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 1" href="#">
-							<span>Nombramiento de Brigadas de Emergencia</span>
+							<span>Auditoría Interna en el CTR Codestable 11-02-15.</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>Representantes de las 4 Brigadas de Emergencia</p>
+							<p>Reunión de apertura, equipo auditor y auditados.</p>
 							</div>   
 							</div>             
 							</article><!-- .slides --> 	
@@ -127,12 +127,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 2" href="#">
-							<span>Capacitación de la Ley 29783 - Ley de Seguridad y Salud en el Trabajo</span>
+							<span>Equipo Auditor Interno - Interior Mina.</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>Jefes y resposables de áreas</p>
+							<p>Auditando las Operaciones en interior mina.</p>
 							</div>   
 							</div>             
 							</article>
@@ -147,12 +147,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 3" href="#">
-							<span>Nombramiento de la Política de Calidad y SSOMA.</span>
+							<span>Equipo Auditor Interno - Superficie Mina.</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>Todos los Colaboradores</p>
+							<p>Equipos auditor, auditando al Residente de CTR.</p>
 							</div>   
 							</div>             
 							</article>
@@ -167,12 +167,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 4" href="#">
-							<span>Capacitación de la Campaña de Reciclaje de Papel en la Empresa</span>
+							<span>Colaboradores de CTR Condestable en Interior Mina.</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>Representante de Aldeas Infantiles y Gerente de Administración y Finanzas</p>
+							<p>Asistente de Residente, Perforista, Ayudantes y Mecánico de la LM 7510.</p>
 							</div>   
 							</div>             
 							</article>
@@ -187,12 +187,12 @@ function catchresponsive_demo_slider( $options ) {
 							<header class="entry-header">
 							<h1 class="entry-title">
 							<a title="Slider Image 5" href="#">
-							<span>Dinamica - Trabajo en Equipo</span>
+							<span>Auditoria Interna en la Sede Principal.</span>
 							</a>
 							</h1>
 							</header>
 							<div class="entry-content">
-							<p>A cargo del área de Psicología Ocupacional - María Tello</p>
+							<p>Auditando al proceso de Recursos Humanos.</p>
 							</div>   
 							</div>             
 							</article>
