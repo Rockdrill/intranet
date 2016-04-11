@@ -4,7 +4,7 @@
  *
  * @package Catch Themes
  * @subpackage Catch Responsive
- * @since Catch Responsive 1.0 
+ * @since Catch Responsive 1.0
  */
 
 // Additional Color Scheme (added to Color Scheme section in Theme Customizer)
@@ -14,7 +14,7 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 	exit();
 }
 
-	
+
 	//Theme Options
 	$wp_customize->add_panel( 'catchresponsive_theme_options', array(
 	    'description'    => __( 'Basic theme Options', 'catch-responsive' ),
@@ -22,7 +22,7 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 	    'priority'       => 200,
 	    'title'    		 => __( 'Theme Options', 'catch-responsive' ),
 	) );
-	
+
 
 	// Breadcrumb Option
 	$wp_customize->add_section( 'catchresponsive_breadcumb_options', array(
@@ -72,10 +72,10 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 			'section' 	=> 'catchresponsive_breadcumb_options',
 			'settings' 	=> 'catchresponsive_theme_options[breadcumb_seperator]',
 			'type'     	=> 'text'
-		) 
+		)
 	);
    	// Breadcrumb Option End
-   	
+
    	// Custom CSS Option
 	$wp_customize->add_section( 'catchresponsive_custom_css', array(
 		'description'	=> __( 'Custom/Inline CSS', 'catch-responsive'),
@@ -164,7 +164,7 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
         'type'     	=> 'dropdown-categories',
     ) ) );
 	//Homepage / Frontpage Settings End
-	
+
 	// Icon Options
 	$wp_customize->add_section( 'catchresponsive_icons', array(
 		'description'	=> __( 'Remove Icon images to disable.', 'catch-responsive'),
@@ -251,7 +251,7 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 		'sanitize_callback' => 'catchresponsive_sanitize_select',
 	) );
 
-	
+
 	$single_post_image_layouts = catchresponsive_single_post_image_layout_options();
 	$choices = array();
 	foreach ( $single_post_image_layouts as $single_post_image_layout ) {
@@ -266,12 +266,12 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 			'choices'  	=> $choices,
 	) );
    	// Layout Options End
-	
+
 	// Pagination Options
 	$pagination_type	= $options['pagination_type'];
 
 	$catchresponsive_navigation_description = sprintf( __( 'Numeric Option requires <a target="_blank" href="%s">WP-PageNavi Plugin</a>.<br/>Infinite Scroll Options requires <a target="_blank" href="%s">JetPack Plugin</a> with Infinite Scroll module Enabled.', 'catch-responsive' ), esc_url( 'https://wordpress.org/plugins/wp-pagenavi' ), esc_url( 'https://wordpress.org/plugins/jetpack/' ) );
-	
+
 	/**
 	 * Check if navigation type is Jetpack Infinite Scroll and if it is enabled
 	 */
@@ -423,6 +423,27 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 		'type'     	=> 'checkbox',
 	) );
 	// Promotion Headline Options End
+
+	// Scrollup
+	$wp_customize->add_section( 'catchresponsive_scrollup', array(
+		'panel'    => 'catchresponsive_theme_options',
+		'priority' => 215,
+		'title'    => __( 'Scrollup Options', 'catch-responsive' ),
+	) );
+
+	$wp_customize->add_setting( 'catchresponsive_theme_options[disable_scrollup]', array(
+		'capability'		=> 'edit_theme_options',
+        'default'			=> $defaults['disable_scrollup'],
+		'sanitize_callback' => 'catchresponsive_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'catchresponsive_theme_options[disable_scrollup]', array(
+		'label'		=> __( 'Check to disable Scroll Up', 'catch-responsive' ),
+		'section'   => 'catchresponsive_scrollup',
+        'settings'  => 'catchresponsive_theme_options[disable_scrollup]',
+		'type'		=> 'checkbox',
+	) );
+	// Scrollup End
 
 	// Search Options
 	$wp_customize->add_section( 'catchresponsive_search_options', array(

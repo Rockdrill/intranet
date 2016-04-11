@@ -4,7 +4,7 @@
  *
  * @package Catch Themes
  * @subpackage Catch Responsive
- * @since Catch Responsive 1.0 
+ * @since Catch Responsive 1.0
  */
 
 if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
@@ -26,7 +26,7 @@ function catchresponsive_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport			= 'postMessage';
 
 	/**
-	  * Set priority of blogname (Site Title) to 1. 
+	  * Set priority of blogname (Site Title) to 1.
 	  *  Strangly, if more than two options is added, Site title is moved below Tagline. This rectifies this issue.
 	  */
 	$wp_customize->get_control( 'blogname' )->priority			= 1;
@@ -67,7 +67,7 @@ function catchresponsive_customize_register( $wp_customize ) {
 		'settings' => 'catchresponsive_theme_options[logo_disable]',
 		'type'     => 'checkbox',
 	) );
-	
+
 	$wp_customize->add_setting( 'catchresponsive_theme_options[logo_alt_text]', array(
 		'capability'		=> 'edit_theme_options',
 		'default'			=> $defaults['logo_alt_text'],
@@ -96,7 +96,7 @@ function catchresponsive_customize_register( $wp_customize ) {
 		'type'     => 'checkbox',
 	) );
 	// Custom Logo End
-	 
+
 	// Color Scheme
 	$wp_customize->add_setting( 'catchresponsive_theme_options[color_scheme]', array(
 		'capability' 		=> 'edit_theme_options',
@@ -121,6 +121,20 @@ function catchresponsive_customize_register( $wp_customize ) {
 		'settings' => 'catchresponsive_theme_options[color_scheme]',
 		'type'     => 'radio',
 	) );
+
+	$wp_customize->add_setting( 'catchresponsive_theme_options[mobile_menu_color_scheme]', array(
+		'capability'		=> 'edit_theme_options',
+		'default'			=> $defaults['mobile_menu_color_scheme'],
+		'sanitize_callback' => 'catchresponsive_sanitize_select'
+	) );
+
+	$wp_customize->add_control( 'catchresponsive_theme_options[mobile_menu_color_scheme]', array(
+		'choices'  => $choices,
+		'label'    => __( 'Mobile Menu Color Scheme', 'catch-responsive' ),
+		'section'  => 'colors',
+		'settings' => 'catchresponsive_theme_options[mobile_menu_color_scheme]',
+		'type'     => 'radio',
+	) );
 	//End Color Scheme
 
 	// Header Options (added to Header section in Theme Customizer)
@@ -128,16 +142,16 @@ function catchresponsive_customize_register( $wp_customize ) {
 
 	//Theme Options
 	require get_template_directory() . '/inc/customizer-includes/catchresponsive-customizer-theme-options.php';
-	
+
 	//Featured Content Setting
 	require get_template_directory() . '/inc/customizer-includes/catchresponsive-customizer-featured-content-setting.php';
-   	
+
 	//Featured Slider
 	require get_template_directory() . '/inc/customizer-includes/catchresponsive-customizer-featured-slider.php';
 
 	//Social Links
 	require get_template_directory() . '/inc/customizer-includes/catchresponsive-customizer-social-icons.php';
-	
+
 	// Reset all settings to default
 	$wp_customize->add_section( 'catchresponsive_reset_all_settings', array(
 		'description'	=> __( 'Caution: Reset all settings to default. Refresh the page after save to view full effects.', 'catch-responsive' ),
@@ -178,7 +192,7 @@ function catchresponsive_customize_register( $wp_customize ) {
          'section'  	=> 'important_links',
         'settings' 	=> 'important_links',
         'type'     	=> 'important_links',
-    ) ) );  
+    ) ) );
     //Important Links End
 }
 add_action( 'customize_register', 'catchresponsive_customize_register' );
@@ -192,7 +206,7 @@ add_action( 'customize_register', 'catchresponsive_customize_register' );
  */
 function catchresponsive_customize_preview() {
 	wp_enqueue_script( 'catchresponsive_customizer', get_template_directory_uri() . '/js/catchresponsive-customizer.min.js', array( 'customize-preview' ), '20120827', true );
-	
+
 	//Flush transients on preview
 	catchresponsive_flush_transients();
 }
@@ -213,9 +227,9 @@ function catchresponsive_customize_scripts() {
 							'WP_version'				=> get_bloginfo( 'version' ),
 							'old_version_message'		=> __( 'Some settings might be missing or disorganized in this version of WordPress. So we suggest you to upgrade to version 4.0 or better.', 'catch-responsive' )
 		);
-	
+
 	$catchresponsive_misc_links['color_list'] = catchresponsive_color_list();
-	
+
 	//Add Upgrade Button and old WordPress message via localized script
 	wp_localize_script( 'catchresponsive_customizer_custom', 'catchresponsive_misc_links', $catchresponsive_misc_links );
 
@@ -239,7 +253,7 @@ function catchresponsive_color_list() {
 
 	$catchresponsive_color_list['background_color']['light']	= $default['background_color'];
 	$catchresponsive_color_list['background_color']['dark']	= $default_dark['background_color'];
-	
+
 	$catchresponsive_color_list['header_textcolor']['light']	= $default['header_textcolor'];
 	$catchresponsive_color_list['header_textcolor']['dark']	= $default_dark['header_textcolor'];
 

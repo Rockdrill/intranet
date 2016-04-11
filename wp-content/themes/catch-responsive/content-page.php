@@ -4,13 +4,13 @@
  *
  * @package Catch Themes
  * @subpackage Catch Responsive
- * @since Catch Responsive 1.0 
+ * @since Catch Responsive 1.0
  */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php 
-	/** 
+	<?php
+	/**
 	 * catchresponsive_before_page_container hook
 	 *
 	 * @hooked catchresponsive_single_content_image - 10

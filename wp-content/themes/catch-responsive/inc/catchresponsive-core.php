@@ -11,7 +11,7 @@
  *
  * @package Catch Themes
  * @subpackage Catch Responsive
- * @since Catch Responsive 1.0 
+ * @since Catch Responsive 1.0
  */
 
 if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
@@ -19,7 +19,7 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit();
 }
-	
+
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -38,7 +38,7 @@ if ( ! function_exists( 'catchresponsive_setup' ) ) :
 	function catchresponsive_setup() {
 		/**
 		 * Get Theme Options Values
-		 */		
+		 */
 		$options 	= catchresponsive_get_theme_options();
 
 		/**
@@ -63,7 +63,7 @@ if ( ! function_exists( 'catchresponsive_setup' ) ) :
 
 		// Add Catch Responsive's custom image sizes
 		add_image_size( 'catchresponsive-slider', 1200, 514, true ); // Used for Featured slider Ratio 21:9
-		
+
 		add_image_size( 'catchresponsive-featured-content', 350, 197, true ); // used in Featured Content Options Ratio 16:9
 
 		//Archive Images
@@ -96,7 +96,7 @@ if ( ! function_exists( 'catchresponsive_setup' ) ) :
 			$default_bg_color = $default_bg_color['background_color'];
 			$default_bg_image = 'body-bg-dark.jpg';
 		}
-		
+
 		add_theme_support( 'custom-background', apply_filters( 'catchresponsive_custom_background_args', array(
 			'default-color' => $default_bg_color,
 			'default-image'	=> get_template_directory_uri() . '/images/' . $default_bg_image,
@@ -110,7 +110,7 @@ if ( ! function_exists( 'catchresponsive_setup' ) ) :
 
 		/**
 		 * Setup title support for theme
-		 * Supported from WordPress version 4.1 onwards 
+		 * Supported from WordPress version 4.1 onwards
 		 * More Info: https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 		 */
 		add_theme_support( 'title-tag' );
@@ -128,7 +128,10 @@ if ( ! function_exists( 'catchresponsive_setup' ) ) :
 			) );
 		}
 		else if ( 'infinite-scroll-scroll' == $pagination_type ) {
-			add_theme_support( 'infinite-scroll', array(
+			//Override infinite scroll disable scroll option
+        	update_option('infinite_scroll', true);
+
+        	add_theme_support( 'infinite-scroll', array(
 				'type'		=> 'scroll',
 				'container' => 'main',
 				'footer'    => 'page'
@@ -202,6 +205,10 @@ function catchresponsive_scripts() {
 
 	wp_enqueue_script( 'catchresponsive-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), '20120206', true );
 
+	// Load the html5 shiv.
+	wp_enqueue_script( 'catchresponsive-html5', get_template_directory_uri() . '/js/html5.min.js', array(), '3.7.3' );
+	wp_script_add_data( 'catchresponsive-html5', 'conditional', 'lt IE 9' );
+
 	wp_enqueue_script( 'catchresponsive-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
 
 	/**
@@ -213,19 +220,32 @@ function catchresponsive_scripts() {
 	}
 
 	//For genericons
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/css/genericons/genericons.css', false, '3.3' );
+	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/css/genericons/genericons.css', false, '3.4.1' );
 
 	/**
 	 * Enqueue the styles for the current color scheme for catchresponsive.
 	 */
-	if ( $options['color_scheme'] != 'light' )
+	if ( $options['color_scheme'] != 'light' ) {
 		wp_enqueue_style( 'catchresponsive-dark', get_template_directory_uri() . '/css/colors/dark.css', array(), null );
-	
-	//Responsive Menu		
-	wp_enqueue_script( 'sidr', get_template_directory_uri() . '/js/jquery.sidr.min.js', array('jquery'), '1.2.1', false );	
+	}
+
+	/**
+	 * Loads up Responsive Menu
+	 */
+	wp_enqueue_script( 'sidr', get_template_directory_uri() . '/js/jquery.sidr.min.js', array('jquery'), '2.2.1.1', false );
+
+	/**
+	 * Loads default sidr color scheme styles(Does not require handle prefix)
+	 */
+	if ( 'dark' == $options['mobile_menu_color_scheme'] ){
+		wp_enqueue_style( 'sidr', get_template_directory_uri() . '/css/jquery.sidr.dark.min.css', false, '2.1.0' );
+	}
+	else {
+		wp_enqueue_style( 'sidr', get_template_directory_uri() . '/css/jquery.sidr.light.min.css', false, '2.1.0' );
+	}
 
 	wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/fitvids.min.js', array( 'jquery' ), '1.1', true );
-	
+
 
 	/**
 	 * Loads up Cycle JS
@@ -259,8 +279,10 @@ function catchresponsive_scripts() {
 
 	/**
 	 * Loads up Scroll Up script
-	 */	
-	wp_enqueue_script( 'catchresponsive-scrollup', get_template_directory_uri() . '/js/catchresponsive-scrollup.min.js', array( 'jquery' ), '20072014', true  );
+	 */
+	if ( ! $options['disable_scrollup'] ) {
+		wp_enqueue_script( 'catchresponsive-scrollup', get_template_directory_uri() . '/js/catchresponsive-scrollup.min.js', array( 'jquery' ), '20072014', true  );
+	}
 
 	/**
 	 * Enqueue custom script for catchresponsive.
@@ -281,7 +303,7 @@ add_action( 'wp_enqueue_scripts', 'catchresponsive_scripts' );
 function catchresponsive_enqueue_metabox_scripts() {
     //Scripts
 	wp_enqueue_script( 'catchresponsive-metabox', get_template_directory_uri() . '/js/catchresponsive-metabox.min.js', array( 'jquery', 'jquery-ui-tabs' ), '2013-10-05' );
-	
+
 	//CSS Styles
 	wp_enqueue_style( 'catchresponsive-metabox-tabs', get_template_directory_uri() . '/css/catchresponsive-metabox-tabs.css' );
 }
@@ -364,7 +386,7 @@ require get_template_directory() . '/inc/catchresponsive-metabox.php';
  */
 function catchresponsive_get_theme_options() {
 	$catchresponsive_default_options = catchresponsive_get_default_theme_options();
-				
+
 	return array_merge( $catchresponsive_default_options , get_theme_mod( 'catchresponsive_theme_options', $catchresponsive_default_options ) ) ;
 }
 
@@ -372,15 +394,15 @@ function catchresponsive_get_theme_options() {
 /**
  * Flush out all transients
  *
- * @uses delete_transient 
- * 
+ * @uses delete_transient
+ *
  * @action customize_save, catchresponsive_customize_preview (see catchresponsive_customizer function: catchresponsive_customize_preview)
- * 
+ *
  * @since Catch Responsive 1.0
  */
 function catchresponsive_flush_transients(){
 	delete_transient( 'catchresponsive_featured_content' );
-	
+
 	delete_transient( 'catchresponsive_featured_slider' );
 
 	delete_transient( 'catchresponsive_favicon' );
@@ -389,13 +411,13 @@ function catchresponsive_flush_transients(){
 
 	delete_transient( 'catchresponsive_custom_css' );
 
-	delete_transient( 'catchresponsive_footer_content' );	
+	delete_transient( 'catchresponsive_footer_content' );
 
 	delete_transient( 'catchresponsive_promotion_headline' );
 
 	delete_transient( 'catchresponsive_featured_image' );
 
-	delete_transient( 'catchresponsive_social_icons' );	
+	delete_transient( 'catchresponsive_social_icons' );
 
 	delete_transient( 'catchresponsive_scrollup' );
 
@@ -411,10 +433,10 @@ add_action( 'customize_save', 'catchresponsive_flush_transients' );
 /**
  * Flush out category transients
  *
- * @uses delete_transient 
- * 
+ * @uses delete_transient
+ *
  * @action edit_category
- * 
+ *
  * @since Catch Responsive 1.0
  */
 function catchresponsive_flush_category_transients(){
@@ -426,15 +448,15 @@ add_action( 'edit_category', 'catchresponsive_flush_category_transients' );
 /**
  * Flush out post related transients
  *
- * @uses delete_transient 
- * 
+ * @uses delete_transient
+ *
  * @action save_post
- * 
+ *
  * @since Catch Responsive 1.0
  */
 function catchresponsive_flush_post_transients(){
 	delete_transient( 'catchresponsive_featured_content' );
-	
+
 	delete_transient( 'catchresponsive_featured_slider' );
 
 	delete_transient( 'catchresponsive_featured_image' );
@@ -448,7 +470,7 @@ if ( ! function_exists( 'catchresponsive_favicon' ) ) :
 	/**
 	 * Get the favicon Image options
 	 *
-	 * @uses favicon 
+	 * @uses favicon
 	 * @get the data value of image from options
 	 * @display favicon
 	 *
@@ -461,17 +483,17 @@ if ( ! function_exists( 'catchresponsive_favicon' ) ) :
 	function catchresponsive_favicon() {
 		if( ( !$catchresponsive_favicon = get_transient( 'catchresponsive_favicon' ) ) ) {
 			$options 	= catchresponsive_get_theme_options();
-			
+
 			echo '<!-- refreshing cache -->';
-			
+
 			if ( isset( $options[ 'favicon' ] ) &&  $options[ 'favicon' ] != '' &&  !empty( $options[ 'favicon' ] ) ) {
 				// if not empty fav_icon on options
-				$catchresponsive_favicon = '<link rel="shortcut icon" href="'.esc_url( $options[ 'favicon' ] ).'" type="image/x-icon" />'; 	
+				$catchresponsive_favicon = '<link rel="shortcut icon" href="'.esc_url( $options[ 'favicon' ] ).'" type="image/x-icon" />';
 			}
 
-			set_transient( 'catchresponsive_favicon', $catchresponsive_favicon, 86940 );	
+			set_transient( 'catchresponsive_favicon', $catchresponsive_favicon, 86940 );
 		}
-		echo $catchresponsive_favicon ;	
+		echo $catchresponsive_favicon ;
 	}
 endif; //catchresponsive_favicon
 //Load Favicon in Header Section
@@ -484,13 +506,13 @@ if ( ! function_exists( 'catchresponsive_web_clip' ) ) :
 	/**
 	 * Get the Web Clip Icon Image from options
 	 *
-	 * @uses web_clip and remove_web_clip 
+	 * @uses web_clip and remove_web_clip
 	 * @get the data value of image from theme options
 	 * @display web clip
 	 *
 	 * @uses default Web Click Icon if web_clip field on theme options is empty
 	 *
-	 * @uses set_transient and delete_transient 
+	 * @uses set_transient and delete_transient
 	 *
 	 * @action wp_head
 	 *
@@ -499,16 +521,16 @@ if ( ! function_exists( 'catchresponsive_web_clip' ) ) :
 	function catchresponsive_web_clip() {
 		if( ( !$catchresponsive_web_clip = get_transient( 'catchresponsive_web_clip' ) ) ) {
 			$options 	= catchresponsive_get_theme_options();
-			
+
 			echo '<!-- refreshing cache -->';
-			
+
 			if ( isset( $options[ 'web_clip' ] ) &&  $options[ 'web_clip' ] != '' &&  !empty( $options[ 'web_clip' ] ) ){
-				$catchresponsive_web_clip = '<link rel="apple-touch-icon-precomposed" href="'.esc_url( $options[ 'web_clip' ] ).'" />'; 	
+				$catchresponsive_web_clip = '<link rel="apple-touch-icon-precomposed" href="'.esc_url( $options[ 'web_clip' ] ).'" />';
 			}
 
-			set_transient( 'catchresponsive_web_clip', $catchresponsive_web_clip, 86940 );	
-		}	
-		echo $catchresponsive_web_clip ;	
+			set_transient( 'catchresponsive_web_clip', $catchresponsive_web_clip, 86940 );
+		}
+		echo $catchresponsive_web_clip ;
 	} // catchresponsive_web_clips
 endif; //catchresponsive_web_clip
 //Load Catchresponsive Icon in Header Section
@@ -521,16 +543,16 @@ if ( ! function_exists( 'catchresponsive_custom_css' ) ) :
 	 * @uses  set_transient, wp_head, wp_enqueue_style
 	 *
 	 * @action wp_enqueue_scripts
-	 * 
+	 *
 	 * @since Catch Responsive 1.0
 	 */
 	function catchresponsive_custom_css() {
 		//catchresponsive_flush_transients();
 		$options 	= catchresponsive_get_theme_options();
-		
+
 		$defaults 	= catchresponsive_get_default_theme_options();
-		
-		if ( ( !$catchresponsive_custom_css = get_transient( 'catchresponsive_custom_css' ) ) ) {		
+
+		if ( ( !$catchresponsive_custom_css = get_transient( 'catchresponsive_custom_css' ) ) ) {
 			$catchresponsive_custom_css ='';
 
 			// Has the text been hidden?
@@ -538,23 +560,23 @@ if ( ! function_exists( 'catchresponsive_custom_css' ) ) :
 				$catchresponsive_custom_css    .=  ".site-title a, .site-description { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px); }". "\n";
 			}
 
-			//Custom CSS Option		
+			//Custom CSS Option
 			if( !empty( $options[ 'custom_css' ] ) ) {
 				$catchresponsive_custom_css	.=  $options['custom_css'] . "\n";
 			}
 
 			if ( '' != $catchresponsive_custom_css ){
 				echo '<!-- refreshing cache -->' . "\n";
-				
+
 				$catchresponsive_custom_css = '<!-- '.get_bloginfo('name').' inline CSS Styles -->' . "\n" . '<style type="text/css" media="screen">' . "\n" . $catchresponsive_custom_css;
-			
+
 				$catchresponsive_custom_css .= '</style>' . "\n";
-			
+
 			}
-			
+
 			set_transient( 'catchresponsive_custom_css', htmlspecialchars_decode( $catchresponsive_custom_css ), 86940 );
 		}
-		
+
 		echo $catchresponsive_custom_css;
 	}
 endif; //catchresponsive_custom_css
@@ -578,18 +600,18 @@ if ( ! function_exists( 'catchresponsive_content_nav' ) ) :
 			if ( ! $next && ! $previous )
 				return;
 		}
-		
+
 		// Don't print empty markup in archives if there's only one page.
 		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
 			return;
 		}
 
 		$options			= catchresponsive_get_theme_options();
-		
+
 		$pagination_type	= $options['pagination_type'];
 
 		$nav_class = ( is_single() ) ? 'site-navigation post-navigation' : 'site-navigation paging-navigation';
-		
+
 		/**
 		 * Check if navigation type is Jetpack Infinite Scroll and if it is enabled, else goto default pagination
 		 * if it's active then disable pagination
@@ -608,12 +630,12 @@ if ( ! function_exists( 'catchresponsive_content_nav' ) ) :
 				if ( 'numeric' == $pagination_type && function_exists( 'wp_pagenavi' ) ) {
 					wp_pagenavi();
 	            }
-	            else { ?>	
+	            else { ?>
 	                <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'catch-responsive' ) ); ?></div>
 	                <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'catch-responsive' ) ); ?></div>
-	            <?php 
+	            <?php
 	            } ?>
-	        </nav><!-- #nav -->	
+	        </nav><!-- #nav -->
 		<?php
 	}
 endif; // catchresponsive_content_nav
@@ -779,7 +801,7 @@ if ( ! function_exists( 'catchresponsive_entry_meta' ) ) :
 			echo '</span>';
 		}
 
-		edit_post_link( esc_html__( 'Edit', 'catch-responsive' ), '<span class="edit-link">', '</span>' ); 
+		edit_post_link( esc_html__( 'Edit', 'catch-responsive' ), '<span class="edit-link">', '</span>' );
 
 		echo '</p><!-- .entry-meta -->';
 	}
@@ -963,7 +985,7 @@ if ( ! function_exists( 'catchresponsive_excerpt_more' ) ) :
 	 * @since Catch Responsive 1.0
 	 */
 	function catchresponsive_excerpt_more( $more ) {
-		return catchresponsive_continue_reading();	
+		return catchresponsive_continue_reading();
 	}
 endif; //catchresponsive_excerpt_more
 add_filter( 'excerpt_more', 'catchresponsive_excerpt_more' );
@@ -1022,22 +1044,22 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 		// Front page displays in Reading Settings
 	    $page_on_front 	= get_option('page_on_front') ;
 	    $page_for_posts = get_option('page_for_posts');
-	
+
 		// Get Page ID outside Loop
 	    $page_id = $wp_query->get_queried_object_id();
-		
+
 		// Blog Page or Front Page setting in Reading Settings
 		if ( $page_id == $page_for_posts || $page_id == $page_on_front ) {
 	        $layout = get_post_meta( $page_id,'catchresponsive-layout-option', true );
 	    }
     	else if ( is_singular() ) {
-	 		if ( is_attachment() ) { 
+	 		if ( is_attachment() ) {
 				$parent = $post->post_parent;
-				
+
 				$layout = get_post_meta( $parent,'catchresponsive-layout-option', true );
-			} 
+			}
 			else {
-				$layout = get_post_meta( $post->ID,'catchresponsive-layout-option', true ); 
+				$layout = get_post_meta( $post->ID,'catchresponsive-layout-option', true );
 			}
 		}
 		else {
@@ -1050,7 +1072,7 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 		}
 
 		$options 		= catchresponsive_get_theme_options();
-			
+
 		$current_layout = $options['theme_layout'];
 
 		if( 'default' == $layout ) {
@@ -1064,19 +1086,19 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 			case 'left-sidebar':
 				$classes[] = 'two-columns content-right';
 			break;
-			
+
 			case 'right-sidebar':
 				$classes[] = 'two-columns content-left';
 			break;
-			
+
 			case 'no-sidebar':
 				$classes[] = 'no-sidebar content-width';
 			break;
-			
+
 			case 'no-sidebar-one-column':
 				$classes[] = 'no-sidebar one-column';
 			break;
-			
+
 			case 'no-sidebar-full-width':
 				$classes[] = 'no-sidebar full-width';
 			break;
@@ -1089,7 +1111,7 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 
 		//Count number of menus avaliable and set class accordingly
 		$mobile_menu_count = 1; // For primary menu
-		
+
 		if ( has_nav_menu( 'secondary' ) ) {
 			$mobile_menu_count++;
 		}
@@ -1110,7 +1132,7 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 			case 3:
 				$classes[] = 'mobile-menu-three';
 				break;
-		}	
+		}
 
 		$classes 	= apply_filters( 'catchresponsive_body_classes', $classes );
 
@@ -1131,15 +1153,15 @@ if ( ! function_exists( 'catchresponsive_archive_content_image' ) ) :
 	 */
 	function catchresponsive_archive_content_image() {
 		$options = catchresponsive_get_theme_options();
-		
+
 		$featured_image = $options['content_layout'];
-			
+
 		if ( has_post_thumbnail() && 'excerpt-image-left' == $featured_image ) {
 		?>
 			<figure class="featured-image">
 	            <a rel="bookmark" href="<?php the_permalink(); ?>">
-	                <?php 
-	                	the_post_thumbnail( 'catchresponsive-square' );		                
+	                <?php
+	                	the_post_thumbnail( 'catchresponsive-square' );
 					?>
 				</a>
 	        </figure>
@@ -1164,18 +1186,18 @@ if ( ! function_exists( 'catchresponsive_single_content_image' ) ) :
 
 		// Getting data from Theme Options
 	   	$options = catchresponsive_get_theme_options();
-		
+
 		$featured_image = $options['single_post_image_layout'];
-		
+
 		// Get Page ID outside Loop
 		$page_id = $wp_query->get_queried_object_id();
-		
+
 		if( $post ) {
-	 		if ( is_attachment() ) { 
+	 		if ( is_attachment() ) {
 				$parent = $post->post_parent;
 				$individual_featured_image = get_post_meta( $parent,'catchresponsive-featured-image', true );
 			} else {
-				$individual_featured_image = get_post_meta( $page_id,'catchresponsive-featured-image', true ); 
+				$individual_featured_image = get_post_meta( $page_id,'catchresponsive-featured-image', true );
 			}
 		}
 
@@ -1187,7 +1209,7 @@ if ( ! function_exists( 'catchresponsive_single_content_image' ) ) :
 			echo '<!-- Page/Post Single Image Disabled or No Image set in Post Thumbnail -->';
 			return false;
 		}
-		else { 
+		else {
 			$class = '';
 
 			if ( 'default' == $individual_featured_image ) {
@@ -1199,7 +1221,7 @@ if ( ! function_exists( 'catchresponsive_single_content_image' ) ) :
 
 			?>
 			<figure class="featured-image <?php echo $class; ?>">
-                <?php 
+                <?php
 				if ( $individual_featured_image == 'featured' || ( $individual_featured_image=='default' && $featured_image == 'featured' ) ) {
 					the_post_thumbnail( 'catchresponsive-featured' );
 				}
@@ -1242,9 +1264,9 @@ if ( ! function_exists( 'catchresponsive_promotion_headline' ) ) :
 	 * @uses catchresponsive_before_main action to add it in the header
 	 * @since Catch Responsive 1.0
 	 */
-	function catchresponsive_promotion_headline() { 
+	function catchresponsive_promotion_headline() {
 		//delete_transient( 'catchresponsive_promotion_headline' );
-		
+
 		global $post, $wp_query;
 	   	$options 	= catchresponsive_get_theme_options();
 
@@ -1253,7 +1275,7 @@ if ( ! function_exists( 'catchresponsive_promotion_headline' ) ) :
 		$promotion_headline_button 	= $options['promotion_headline_button'];
 		$promotion_headline_target 	= $options['promotion_headline_target'];
 		$enablepromotion 			= $options['promotion_headline_option'];
-		
+
 		//support qTranslate plugin
 		if ( function_exists( 'qtrans_convertURL' ) ) {
 			$promotion_headline_url = qtrans_convertURL($options[ 'promotion_headline_url' ]);
@@ -1261,36 +1283,36 @@ if ( ! function_exists( 'catchresponsive_promotion_headline' ) ) :
 		else {
 			$promotion_headline_url = $options[ 'promotion_headline_url' ];
 		}
-		
+
 		// Front page displays in Reading Settings
 		$page_on_front = get_option( 'page_on_front' ) ;
-		$page_for_posts = get_option('page_for_posts'); 
+		$page_for_posts = get_option('page_for_posts');
 
 		// Get Page ID outside Loop
 		$page_id = $wp_query->get_queried_object_id();
 
-		 if ( ( "" != $promotion_headline || "" != $promotion_subheadline || "" != $promotion_headline_url ) && ( $enablepromotion == 'entire-site' || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && $enablepromotion == 'homepage' ) ) ) { 	
-			
+		 if ( ( "" != $promotion_headline || "" != $promotion_subheadline || "" != $promotion_headline_url ) && ( $enablepromotion == 'entire-site' || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && $enablepromotion == 'homepage' ) ) ) {
+
 			if ( !$catchresponsive_promotion_headline = get_transient( 'catchresponsive_promotion_headline' ) ) {
-				
-				echo '<!-- refreshing cache -->';	
-				
+
+				echo '<!-- refreshing cache -->';
+
 				$catchresponsive_promotion_headline = '
 				<div id="promotion-message">
 					<div class="wrapper">
 						<div class="section left">';
-				
+
 						if ( "" != $promotion_headline ) {
 							$catchresponsive_promotion_headline .= '<h2>' . $promotion_headline . '</h2>';
 						}
 
 						if ( "" != $promotion_subheadline ) {
 							$catchresponsive_promotion_headline .= '<p>' . $promotion_subheadline . '</p>';
-						}			
-						
+						}
+
 						$catchresponsive_promotion_headline .= '
-						</div><!-- .section.left -->';  
-							
+						</div><!-- .section.left -->';
+
 						if ( "" != $promotion_headline_url ) {
 							if ( "1" == $promotion_headline_target ) {
 								$headlinetarget = '_blank';
@@ -1298,21 +1320,21 @@ if ( ! function_exists( 'catchresponsive_promotion_headline' ) ) :
 							else {
 								$headlinetarget = '_self';
 							}
-							
+
 							$catchresponsive_promotion_headline .= '
 							<div class="section right">
 								<a class="promotion-button" href="' . esc_url( $promotion_headline_url ) . '" target="' . $headlinetarget . '">' . esc_attr( $promotion_headline_button ) . '
 								</a>
 							</div><!-- .section.right -->';
 						}
-				
+
 				$catchresponsive_promotion_headline .= '
 					</div><!-- .wrapper -->
 				</div><!-- #promotion-message -->';
-				
+
 				set_transient( 'catchresponsive_promotion_headline', $catchresponsive_promotion_headline, 86940 );
 			}
-			echo $catchresponsive_promotion_headline;	
+			echo $catchresponsive_promotion_headline;
 		 }
 	}
 endif; // catchresponsive_promotion_featured_content
@@ -1332,18 +1354,18 @@ function catchresponsive_footer_content() {
 	//catchresponsive_flush_transients();
 	if ( ( !$catchresponsive_footer_content = get_transient( 'catchresponsive_footer_content' ) ) ) {
 		echo '<!-- refreshing cache -->';
-		
+
 		$catchresponsive_content = catchresponsive_get_content();
 
-		$catchresponsive_footer_content =  '    	
+		$catchresponsive_footer_content =  '
     	<div id="site-generator">
     		<div class="wrapper">
     			<div id="footer-content" class="copyright">'
-    				. $catchresponsive_content['left'] . ' &#124; ' . $catchresponsive_content['right'] . 
+    				. $catchresponsive_content['left'] . ' &#124; ' . $catchresponsive_content['right'] .
     			'</div>
 			</div><!-- .wrapper -->
 		</div><!-- #site-generator -->';
-		
+
     	set_transient( 'catchresponsive_footer_content', $catchresponsive_footer_content, 86940 );
     }
 
@@ -1374,7 +1396,7 @@ function catchresponsive_get_first_image( $postID, $size, $attr ) {
 	if( isset( $matches [1] [0] ) ) {
 		//Get first image
 		$first_img = $matches [1] [0];
-		
+
 		return '<img class="pngfix wp-post-image" src="'. esc_url( $first_img ) .'">';
 	}
 	else {
@@ -1396,13 +1418,16 @@ if ( ! function_exists( 'catchresponsive_scrollup' ) ) {
 
 			// get the data value from theme options
 			$options = catchresponsive_get_theme_options();
-			echo '<!-- refreshing cache -->';	
-			
-			$catchresponsive_scrollup =  '<a href="#masthead" id="scrollup" class="genericon"><span class="screen-reader-text">' . __( 'Scroll Up', 'catch-responsive' ) . '</span></a>' ;
-			
+			echo '<!-- refreshing cache -->';
+
+			//site stats, analytics header code
+			if ( ! $options['disable_scrollup'] ) {
+				$catchresponsive_scrollup =  '<a href="#masthead" id="scrollup" class="genericon"><span class="screen-reader-text">' . __( 'Scroll Up', 'catch-responsive' ) . '</span></a>' ;
+			}
+
 			set_transient( 'catchresponsive_scrollup', $catchresponsive_scrollup, 86940 );
 		}
-		echo $catchresponsive_scrollup;	
+		echo $catchresponsive_scrollup;
 	}
 }
 add_action( 'catchresponsive_after', 'catchresponsive_scrollup', 10 );
@@ -1414,12 +1439,12 @@ if ( ! function_exists( 'catchresponsive_page_post_meta' ) ) :
 	 */
 	function catchresponsive_page_post_meta() {
 		$catchresponsive_author_url = esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) );
-		
+
 		$catchresponsive_page_post_meta = '<span class="post-time">' . __( 'Posted on', 'catch-responsive' ) . ' <time class="entry-date updated" datetime="' . esc_attr( get_the_date( 'c' ) ) . '" pubdate>' . esc_html( get_the_date() ) . '</time></span>';
 	    $catchresponsive_page_post_meta .= '<span class="post-author">' . __( 'By', 'catch-responsive' ) . ' <span class="author vcard"><a class="url fn n" href="' . $catchresponsive_author_url . '" title="View all posts by ' . get_the_author() . '" rel="author">' .get_the_author() . '</a></span>';
 
 		return $catchresponsive_page_post_meta;
-	} 
+	}
 endif; //catchresponsive_page_post_meta
 
 
@@ -1431,7 +1456,7 @@ if ( ! function_exists( 'catchresponsive_alter_home' ) ) :
 	 */
 	function catchresponsive_alter_home( $query ){
 		$options = catchresponsive_get_theme_options();
-			
+
 	    $cats = $options[ 'front_page_category' ];
 
 		if ( is_array( $cats ) && !in_array( '0', $cats ) ) {
@@ -1451,7 +1476,7 @@ if ( ! function_exists( 'catchresponsive_post_navigation' ) ) :
 	 * @uses  the_post_navigation
 	 *
 	 * @action catchresponsive_after_post
-	 * 
+	 *
 	 * @since Catch Responsive 1.6
 	 */
 	function catchresponsive_post_navigation() {

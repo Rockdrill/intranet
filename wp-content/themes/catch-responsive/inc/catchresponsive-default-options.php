@@ -4,7 +4,7 @@
  *
  * @package Catch Themes
  * @subpackage Catch Responsive
- * @since Catch Responsive 1.0 
+ * @since Catch Responsive 1.0
  */
 
 if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
@@ -20,25 +20,26 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
  * @since Catch Responsive 1.0
  */
 function catchresponsive_get_default_theme_options() {
-	
+
 	$default_theme_options = array(
 		//Site Title an Tagline
 		'logo'												=> get_template_directory_uri() . '/images/headers/logo.png',
 		'logo_alt_text' 									=> '',
 		'logo_disable'										=> 1,
 		'move_title_tagline'								=> 0,
-		
+
 		//Layout
 		'theme_layout' 										=> 'right-sidebar',
 		'content_layout'									=> 'excerpt-image-left',
 		'single_post_image_layout'							=> 'disabled',
-		
+
 		//Header Image
 		'enable_featured_header_image'						=> 'disabled',
 		'featured_image_size'								=> 'full',
 		'featured_header_image_url'							=> '',
 		'featured_header_image_alt'							=> '',
 		'featured_header_image_base'						=> 0,
+
 
 		//Breadcrumb Options
 		'breadcumb_option'									=> 0,
@@ -48,18 +49,21 @@ function catchresponsive_get_default_theme_options() {
 		//Custom CSS
 		'custom_css'										=> '',
 
+		//Scrollup Options
+		'disable_scrollup'                                  => 0,
+
 		//Excerpt Options
 		'excerpt_length'									=> '55',
 		'excerpt_more_text'									=> __( 'Read More ...', 'catch-responsive' ),
-		
+
 		//Homepage / Frontpage Settings
 		'front_page_category'								=> array(),
-		
+
 		//Pagination Options
 		'pagination_type'									=> 'default',
 
 		//Promotion Headline Options
-		'promotion_headline_option'							=> 'disabled',		
+		'promotion_headline_option'							=> 'disabled',
 		'promotion_headline_type'							=> 'promotion-headline-content',
 		'promotion_headline'								=> __( 'Catch Responsive is a Premium Responsive WordPress Theme', 'catch-responsive' ),
 		'promotion_subheadline'								=> __( 'This is promotion headline. You can edit this from Appearance -> Customize -> Theme Options -> Promotion Headline Options', 'catch-responsive' ),
@@ -74,7 +78,8 @@ function catchresponsive_get_default_theme_options() {
 		'color_scheme' 										=> 'light',
 		'background_color'									=> '#f9f9f9',
 		'header_textcolor'									=> '#111111',
-		
+		'mobile_menu_color_scheme'							=> 'light',
+
 		//Featured Content Options
 		'featured_content_option'							=> 'homepage',
 		'featured_content_layout'							=> 'layout-three',
@@ -93,7 +98,7 @@ function catchresponsive_get_default_theme_options() {
 		'featured_slide_transition_length'					=> '1',
 		'featured_slider_type'								=> 'demo-featured-slider',
 		'featured_slide_number'								=> '4',
-		
+
 		//Reset all settings
 		'reset_all_settings'								=> 0,
 	);
@@ -157,7 +162,7 @@ function catchresponsive_get_archive_content_layout() {
 		'excerpt-image-left' => array(
 			'value' => 'excerpt-image-left',
 			'label' => __( 'Show Excerpt', 'catch-responsive' ),
-		),		
+		),
 		'full-content' => array(
 			'value' => 'full-content',
 			'label' => __( 'Show Full Content (No Featured Image)', 'catch-responsive' ),
@@ -418,7 +423,7 @@ function catchresponsive_featured_slider_image_loader() {
 		'false' => array(
 			'value' 				=> 'false',
 			'label' 				=> __( 'False', 'catch-responsive' ),
-		),		
+		),
 	);
 
 	return apply_filters( 'catchresponsive_color_schemes', $color_scheme_options );
@@ -483,36 +488,146 @@ function catchresponsive_single_post_image_layout_options() {
  *
  * @since Catch Responsive 1.0
 */
+/**
+ * Returns list of social icons currently supported
+ *
+ * @since Catch Responsive 1.0
+*/
 function catchresponsive_get_social_icons_list() {
-	$catchresponsive_social_icons_list =	array( 
-											__( 'Facebook', 'catch-responsive' ), 
-											__( 'Twitter', 'catch-responsive' ), 
-											__( 'Googleplus', 'catch-responsive' ),
-											__( 'Email', 'catch-responsive' ),
-											__( 'Feed', 'catch-responsive' ),	
-											__( 'WordPress', 'catch-responsive' ), 
-											__( 'GitHub', 'catch-responsive' ), 
-											__( 'LinkedIn', 'catch-responsive' ), 
-											__( 'Pinterest', 'catch-responsive' ), 
-											__( 'Flickr', 'catch-responsive' ), 
-											__( 'Vimeo', 'catch-responsive' ), 
-											__( 'YouTube', 'catch-responsive' ), 
-											__( 'Tumblr', 'catch-responsive' ), 
-											__( 'Instagram', 'catch-responsive' ), 
-											__( 'PollDaddy', 'catch-responsive' ),
-											__( 'CodePen', 'catch-responsive' ), 
-											__( 'Path', 'catch-responsive' ), 
-											__( 'Dribbble', 'catch-responsive' ), 
-											__( 'Skype', 'catch-responsive' ), 
-											__( 'Digg', 'catch-responsive' ), 
-											__( 'Reddit', 'catch-responsive' ), 
-											__( 'StumbleUpon', 'catch-responsive' ), 
-											__( 'Pocket', 'catch-responsive' ), 
-											__( 'DropBox', 'catch-responsive' ),
-											__( 'Foursquare', 'catch-responsive' ),									
-											__( 'Spotify', 'catch-responsive' ),
-											__( 'Twitch', 'catch-responsive' ),
-										);
+	$catchresponsive_social_icons_list = array(
+		'facebook_link'		=> array(
+			'genericon_class' 	=> 'facebook-alt',
+			'label' 			=> esc_html__( 'Facebook', 'catch-responsive' )
+			),
+		'twitter_link'		=> array(
+			'genericon_class' 	=> 'twitter',
+			'label' 			=> esc_html__( 'Twitter', 'catch-responsive' )
+			),
+		'googleplus_link'	=> array(
+			'genericon_class' 	=> 'googleplus-alt',
+			'label' 			=> esc_html__( 'Googleplus', 'catch-responsive' )
+			),
+		'email_link'		=> array(
+			'genericon_class' 	=> 'mail',
+			'label' 			=> esc_html__( 'Email', 'catch-responsive' )
+			),
+		'feed_link'			=> array(
+			'genericon_class' 	=> 'feed',
+			'label' 			=> esc_html__( 'Feed', 'catch-responsive' )
+			),
+		'wordpress_link'	=> array(
+			'genericon_class' 	=> 'wordpress',
+			'label' 			=> esc_html__( 'WordPress', 'catch-responsive' )
+			),
+		'github_link'		=> array(
+			'genericon_class' 	=> 'github',
+			'label' 			=> esc_html__( 'GitHub', 'catch-responsive' )
+			),
+		'linkedin_link'		=> array(
+			'genericon_class' 	=> 'linkedin',
+			'label' 			=> esc_html__( 'LinkedIn', 'catch-responsive' )
+			),
+		'pinterest_link'	=> array(
+			'genericon_class' 	=> 'pinterest',
+			'label' 			=> esc_html__( 'Pinterest', 'catch-responsive' )
+			),
+		'flickr_link'		=> array(
+			'genericon_class' 	=> 'flickr',
+			'label' 			=> esc_html__( 'Flickr', 'catch-responsive' )
+			),
+		'vimeo_link'		=> array(
+			'genericon_class' 	=> 'vimeo',
+			'label' 			=> esc_html__( 'Vimeo', 'catch-responsive' )
+			),
+		'youtube_link'		=> array(
+			'genericon_class' 	=> 'youtube',
+			'label' 			=> esc_html__( 'YouTube', 'catch-responsive' )
+			),
+		'tumblr_link'		=> array(
+			'genericon_class' 	=> 'tumblr',
+			'label' 			=> esc_html__( 'Tumblr', 'catch-responsive' )
+			),
+		'instagram_link'	=> array(
+			'genericon_class' 	=> 'instagram',
+			'label' 			=> esc_html__( 'Instagram', 'catch-responsive' )
+			),
+		'polldaddy_link'	=> array(
+			'genericon_class' 	=> 'polldaddy',
+			'label' 			=> esc_html__( 'PollDaddy', 'catch-responsive' )
+			),
+		'codepen_link'		=> array(
+			'genericon_class' 	=> 'codepen',
+			'label' 			=> esc_html__( 'CodePen', 'catch-responsive' )
+			),
+		'path_link'			=> array(
+			'genericon_class' 	=> 'path',
+			'label' 			=> esc_html__( 'Path', 'catch-responsive' )
+			),
+		'dribbble_link'		=> array(
+			'genericon_class' 	=> 'dribbble',
+			'label' 			=> esc_html__( 'Dribbble', 'catch-responsive' )
+			),
+		'skype_link'		=> array(
+			'genericon_class' 	=> 'skype',
+			'label' 			=> esc_html__( 'Skype', 'catch-responsive' )
+			),
+		'digg_link'			=> array(
+			'genericon_class' 	=> 'digg',
+			'label' 			=> esc_html__( 'Digg', 'catch-responsive' )
+			),
+		'reddit_link'		=> array(
+			'genericon_class' 	=> 'reddit',
+			'label' 			=> esc_html__( 'Reddit', 'catch-responsive' )
+			),
+		'stumbleupon_link'	=> array(
+			'genericon_class' 	=> 'stumbleupon',
+			'label' 			=> esc_html__( 'Stumbleupon', 'catch-responsive' )
+			),
+		'pocket_link'		=> array(
+			'genericon_class' 	=> 'pocket',
+			'label' 			=> esc_html__( 'Pocket', 'catch-responsive' ),
+			),
+		'dropbox_link'		=> array(
+			'genericon_class' 	=> 'dropbox',
+			'label' 			=> esc_html__( 'DropBox', 'catch-responsive' ),
+			),
+		'spotify_link'		=> array(
+			'genericon_class' 	=> 'spotify',
+			'label' 			=> esc_html__( 'Spotify', 'catch-responsive' ),
+			),
+		'foursquare_link'	=> array(
+			'genericon_class' 	=> 'foursquare',
+			'label' 			=> esc_html__( 'Foursquare', 'catch-responsive' ),
+			),
+		'twitch_link'		=> array(
+			'genericon_class' 	=> 'twitch',
+			'label' 			=> esc_html__( 'Twitch', 'catch-responsive' ),
+			),
+		'website_link'		=> array(
+			'genericon_class' 	=> 'website',
+			'label' 			=> esc_html__( 'Website', 'catch-responsive' ),
+			),
+		'phone_link'		=> array(
+			'genericon_class' 	=> 'phone',
+			'label' 			=> esc_html__( 'Phone', 'catch-responsive' ),
+			),
+		'handset_link'		=> array(
+			'genericon_class' 	=> 'handset',
+			'label' 			=> esc_html__( 'Handset', 'catch-responsive' ),
+			),
+		'cart_link'			=> array(
+			'genericon_class' 	=> 'cart',
+			'label' 			=> esc_html__( 'Cart', 'catch-responsive' ),
+			),
+		'cloud_link'		=> array(
+			'genericon_class' 	=> 'cloud',
+			'label' 			=> esc_html__( 'Cloud', 'catch-responsive' ),
+			),
+		'link_link'		=> array(
+			'genericon_class' 	=> 'link',
+			'label' 			=> esc_html__( 'Link', 'catch-responsive' ),
+			),
+	);
 
 	return apply_filters( 'catchresponsive_social_icons_list', $catchresponsive_social_icons_list );
 }
@@ -565,7 +680,7 @@ function catchresponsive_metabox_header_featured_image_options() {
 			'id'		=> 'catchresponsive-header-image',
 			'value' 	=> 'enable',
 			'label' 	=> __( 'Enable', 'catch-responsive' ),
-		),	
+		),
 		'disable' => array(
 			'id'		=> 'catchresponsive-header-image',
 			'value' 	=> 'disable',
@@ -587,7 +702,7 @@ function catchresponsive_metabox_featured_image_options() {
 			'id'		=> 'catchresponsive-featured-image',
 			'value' 	=> 'default',
 			'label' 	=> __( 'Default', 'catch-responsive' ),
-		),							   
+		),
 		'featured' => array(
 			'id'		=> 'catchresponsive-featured-image',
 			'value' 	=> 'featured',

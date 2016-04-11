@@ -12,11 +12,11 @@
         });
     }
 
-    //Add Upgrade Button,Theme instruction, Support Forum, Changelog, Donate link, Review, Facebook, Twitter, Google+, Pinterest links 
+    //Add Upgrade Button,Theme instruction, Support Forum, Changelog, Donate link, Review, Facebook, Twitter, Google+, Pinterest links
     $('.preview-notice').prepend('<span id="catchresponsive_upgrade"><a target="_blank" class="button btn-upgrade" href="' + catchresponsive_misc_links.upgrade_link + '">' + catchresponsive_misc_links.upgrade_text + '</a></span>');
     jQuery('#customize-info .btn-upgrade, .misc_links').click(function(event) {
         event.stopPropagation();
-    });     
+    });
 })(jQuery);
 
 
@@ -42,6 +42,9 @@
                             .wpColorPicker( 'defaultColor', value.dark );
                         }
                     });
+
+                    //Change value of Mobile Menu Color Scheme on change of color Scneme
+                    jQuery('input[name="_customize-radio-catchresponsive_theme_options[mobile_menu_color_scheme]"][value="' + color_scheme + '"]').prop('checked', true);
                 });
             }
         }

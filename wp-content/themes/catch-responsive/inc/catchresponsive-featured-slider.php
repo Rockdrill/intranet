@@ -97,107 +97,41 @@ if ( ! function_exists( 'catchresponsive_demo_slider' ) ) :
  */
 function catchresponsive_demo_slider( $options ) {
 	$catchresponsive_demo_slider ='
-							<article class="post hentry slides demo-image displayblock">
-							<figure class="slider-image">
-							<a title="Slider Image 1" href="'. esc_url( home_url( '/' ) ) .'">
-							<img src="'.get_template_directory_uri().'/images/gallery/slide/slide-1.png" class="wp-post-image" alt="Slider Image 1" title="Slider Image 1">
-							</a>
-							</figure>
-							<div class="entry-container">
-							<header class="entry-header">
-							<h1 class="entry-title">
-							<a title="Slider Image 1" href="#">
-							<span>Auditoría Interna en el CTR Codestable 11-02-15.</span>
-							</a>
-							</h1>
-							</header>
-							<div class="entry-content">
-							<p>Reunión de apertura, equipo auditor y auditados.</p>
-							</div>   
-							</div>             
-							</article><!-- .slides --> 	
+								<article class="post hentry slides demo-image displayblock">
+									<figure class="slider-image">
+										<a title="Slider Image 1" href="'. esc_url( home_url( '/' ) ) .'">
+											<img src="'.get_template_directory_uri().'/images/gallery/slider1-1200x514.jpg" class="wp-post-image" alt="Slider Image 1" title="Slider Image 1">
+										</a>
+									</figure>
+									<div class="entry-container">
+										<header class="entry-header">
+											<h1 class="entry-title">
+												<a title="Slider Image 1" href="#"><span>Slider Image 1</span></a>
+											</h1>
+										</header>
+										<div class="entry-content">
+											<p>Slider Image 1 Content</p>
+										</div>   
+									</div>             
+								</article><!-- .slides --> 	
 								
-							<article class="post hentry slides demo-image displaynone">
-							<figure class="Slider Image 2">
-							<a title="Slider Image 2" href="'. esc_url( home_url( '/' ) ) .'">
-							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-2.png" class="wp-post-image" alt="Slider Image 2" title="Slider Image 2">
-							</a>
-							</figure>
-							<div class="entry-container">
-							<header class="entry-header">
-							<h1 class="entry-title">
-							<a title="Slider Image 2" href="#">
-							<span>Equipo Auditor Interno - Interior Mina.</span>
-							</a>
-							</h1>
-							</header>
-							<div class="entry-content">
-							<p>Auditando las Operaciones en interior mina.</p>
-							</div>   
-							</div>             
-							</article>
-
-							<article class="post hentry slides demo-image displaynone">
-							<figure class="Slider Image 3">
-							<a title="Slider Image 3" href="'. esc_url( home_url( '/' ) ) .'">
-							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-3.png" class="wp-post-image" alt="Slider Image 3" title="Slider Image 3">
-							</a>
-							</figure>
-							<div class="entry-container">
-							<header class="entry-header">
-							<h1 class="entry-title">
-							<a title="Slider Image 3" href="#">
-							<span>Equipo Auditor Interno - Superficie Mina.</span>
-							</a>
-							</h1>
-							</header>
-							<div class="entry-content">
-							<p>Equipos auditor, auditando al Residente de CTR.</p>
-							</div>   
-							</div>             
-							</article>
-
-							<article class="post hentry slides demo-image displaynone">
-							<figure class="Slider Image 4">
-							<a title="Slider Image 4" href="'. esc_url( home_url( '/' ) ) .'">
-							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-4.png" class="wp-post-image" alt="Slider Image 4" title="Slider Image 4">
-							</a>
-							</figure>
-							<div class="entry-container">
-							<header class="entry-header">
-							<h1 class="entry-title">
-							<a title="Slider Image 4" href="#">
-							<span>Colaboradores de CTR Condestable en Interior Mina.</span>
-							</a>
-							</h1>
-							</header>
-							<div class="entry-content">
-							<p>Asistente de Residente, Perforista, Ayudantes y Mecánico de la LM 7510.</p>
-							</div>   
-							</div>             
-							</article>
-
-							<article class="post hentry slides demo-image displaynone">
-							<figure class="Slider Image 5">
-							<a title="Slider Image 5" href="'. esc_url( home_url( '/' ) ) .'">
-							<img src="'. get_template_directory_uri() . '/images/gallery/slide/slide-5.png" class="wp-post-image" alt="Slider Image 5" title="Slider Image 5">
-							</a>
-							</figure>
-							<div class="entry-container">
-							<header class="entry-header">
-							<h1 class="entry-title">
-							<a title="Slider Image 5" href="#">
-							<span>Auditoria Interna en la Sede Principal.</span>
-							</a>
-							</h1>
-							</header>
-							<div class="entry-content">
-							<p>Auditando al proceso de Recursos Humanos.</p>
-							</div>   
-							</div>             
-							</article>
-
-								<!-- .slides --> ';
+								<article class="post hentry slides demo-image displaynone">
+									<figure class="Slider Image 2">
+										<a title="Slider Image 2" href="'. esc_url( home_url( '/' ) ) .'">
+											<img src="'. get_template_directory_uri() . '/images/gallery/slider2-1200x514.jpg" class="wp-post-image" alt="Slider Image 2" title="Slider Image 2">
+										</a>
+									</figure>
+									<div class="entry-container">
+										<header class="entry-header">
+											<h1 class="entry-title">
+												<a title="Slider Image 2" href="#"><span>Slider Image 2</span></a>
+											</h1>
+										</header>
+										<div class="entry-content">
+											<p>Slider Image 2 Content</p>
+										</div>   
+									</div>             
+								</article><!-- .slides --> ';
 	return $catchresponsive_demo_slider;
 }
 endif; // catchresponsive_demo_slider

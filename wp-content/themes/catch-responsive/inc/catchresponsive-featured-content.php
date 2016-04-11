@@ -23,7 +23,7 @@ if( !function_exists( 'catchresponsive_featured_content_display' ) ) :
 * @since Catch Responsive 1.0
 */
 function catchresponsive_featured_content_display() {
-	catchresponsive_flush_transients();
+	//catchresponsive_flush_transients();
 	
 	global $post, $wp_query;
 

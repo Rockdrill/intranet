@@ -22,6 +22,3 @@ if ( !defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
  * Implement the core functions
  */
 require get_template_directory() . '/inc/catchresponsive-core.php';
-
-
-
