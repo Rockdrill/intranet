@@ -26,7 +26,7 @@ define('DB_NAME', 'intranet');
 define('DB_USER', 'root');
 
 /** Contraseña del usuario de la base de datos de MySQL */
-define('DB_PASSWORD', '@rockDB2015@');
+define('DB_PASSWORD', 'dbROCKperu??');
 
 /** Nombre del servidor de MySQL (generalmente es localhost) */
 define('DB_HOST', 'localhost');

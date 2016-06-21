@@ -1,5 +1,12 @@
 == Change log ==
 
+== 2.4.1 ==
+* Bug Fixed: Genericions issue with To Top plugin
+* Updated: Content Width Implementation
+* Updated: Theme Layout retrieval via function
+* Updated: Favicon and Web Clip Migration to Site Icon( Core Support )
+* Updated: Logo to Custom Logo( Core Support ) for WP version 4.5
+
 == 2.4 ==
 * Added: Disable scrollup option
 * Updated: Sidr menu script to version 2.1.1.1

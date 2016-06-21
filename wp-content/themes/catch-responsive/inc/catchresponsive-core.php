@@ -21,11 +21,22 @@ if ( ! defined( 'CATCHRESPONSIVE_THEME_VERSION' ) ) {
 }
 
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 780; /* pixels */
+if ( ! function_exists( 'catchresponsive_content_width' ) ) :
+	/**
+	 * Set the content width in pixels, based on the theme's design and stylesheet.
+	 *
+	 * Priority 0 to make it available to lower priority callbacks.
+	 *
+	 * @global int $content_width
+	 */
+	function catchresponsive_content_width() {
+		$content_width = 780; /* pixels */
+
+		$GLOBALS['content_width'] = apply_filters( 'catchresponsive_content_width', $content_width );
+	}
+endif;
+add_action( 'after_setup_theme', 'catchresponsive_content_width', 0 );
+
 
 if ( ! function_exists( 'catchresponsive_setup' ) ) :
 	/**
@@ -114,6 +125,16 @@ if ( ! function_exists( 'catchresponsive_setup' ) ) :
 		 * More Info: https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 		 */
 		add_theme_support( 'title-tag' );
+
+		//@remove Remove check when WordPress 4.8 is released
+		if ( function_exists( 'has_custom_logo' ) ) {
+			/**
+			* Setup Custom Logo Support for theme
+			* Supported from WordPress version 4.5 onwards
+			* More Info: https://make.wordpress.org/core/2016/03/10/custom-logo/
+			*/
+			add_theme_support( 'custom-logo' );
+		}
 
 		/**
 		 * Setup Infinite Scroll using JetPack if navigation type is set
@@ -405,8 +426,10 @@ function catchresponsive_flush_transients(){
 
 	delete_transient( 'catchresponsive_featured_slider' );
 
+	//@remove Remove version check when WordPress 4.8 is released
 	delete_transient( 'catchresponsive_favicon' );
 
+	//@remove Remove version check when WordPress 4.8 is released
 	delete_transient( 'catchresponsive_webclip' );
 
 	delete_transient( 'catchresponsive_custom_css' );
@@ -479,6 +502,8 @@ if ( ! function_exists( 'catchresponsive_favicon' ) ) :
 	 * @action wp_head, admin_head
 	 *
 	 * @since Catch Responsive 1.0
+	 *
+	 * @remove Remove version check when WordPress 4.8 is released
 	 */
 	function catchresponsive_favicon() {
 		if( ( !$catchresponsive_favicon = get_transient( 'catchresponsive_favicon' ) ) ) {
@@ -517,6 +542,8 @@ if ( ! function_exists( 'catchresponsive_web_clip' ) ) :
 	 * @action wp_head
 	 *
 	 * @since Catch Responsive 1.0
+	 *
+	 * @remove Remove version check when WordPress 4.8 is released
 	 */
 	function catchresponsive_web_clip() {
 		if( ( !$catchresponsive_web_clip = get_transient( 'catchresponsive_web_clip' ) ) ) {
@@ -1034,55 +1061,16 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 	 * @since Catch Responsive 1.0
 	 */
 	function catchresponsive_body_classes( $classes ) {
-		global $post, $wp_query;
+		$options = catchresponsive_get_theme_options();
 
 		// Adds a class of group-blog to blogs with more than 1 published author
 		if ( is_multi_author() ) {
 			$classes[] = 'group-blog';
 		}
 
-		// Front page displays in Reading Settings
-	    $page_on_front 	= get_option('page_on_front') ;
-	    $page_for_posts = get_option('page_for_posts');
+		$layout = catchresponsive_get_theme_layout();
 
-		// Get Page ID outside Loop
-	    $page_id = $wp_query->get_queried_object_id();
-
-		// Blog Page or Front Page setting in Reading Settings
-		if ( $page_id == $page_for_posts || $page_id == $page_on_front ) {
-	        $layout = get_post_meta( $page_id,'catchresponsive-layout-option', true );
-	    }
-    	else if ( is_singular() ) {
-	 		if ( is_attachment() ) {
-				$parent = $post->post_parent;
-
-				$layout = get_post_meta( $parent,'catchresponsive-layout-option', true );
-			}
-			else {
-				$layout = get_post_meta( $post->ID,'catchresponsive-layout-option', true );
-			}
-		}
-		else {
-			$layout = 'default';
-		}
-
-		//check empty and load default
-		if( empty( $layout ) ) {
-			$layout = 'default';
-		}
-
-		$options 		= catchresponsive_get_theme_options();
-
-		$current_layout = $options['theme_layout'];
-
-		if( 'default' == $layout ) {
-			$layout_selector = $current_layout;
-		}
-		else {
-			$layout_selector = $layout;
-		}
-
-		switch ( $layout_selector ) {
+		switch ( $layout ) {
 			case 'left-sidebar':
 				$classes[] = 'two-columns content-right';
 			break;
@@ -1104,9 +1092,8 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 			break;
 		}
 
-		$current_content_layout = $options['content_layout'];
-		if( "" != $current_content_layout ) {
-			$classes[] = $current_content_layout;
+		if( "" != $options['content_layout'] ) {
+			$classes[] = $options['content_layout'];
 		}
 
 		//Count number of menus avaliable and set class accordingly
@@ -1140,6 +1127,62 @@ if ( ! function_exists( 'catchresponsive_body_classes' ) ) :
 	}
 endif; //catchresponsive_body_classes
 add_filter( 'body_class', 'catchresponsive_body_classes' );
+
+
+if ( ! function_exists( 'catchresponsive_get_theme_layout' ) ) :
+	/**
+	 * Returns Theme Layout prioritizing the meta box layouts
+	 *
+	 * @uses  get_theme_mod
+	 *
+	 * @action wp_head
+	 *
+	 * @since Catch Responsive 3.8.1
+	 */
+	function catchresponsive_get_theme_layout() {
+		$id = '';
+
+		global $post, $wp_query;
+
+	    // Front page displays in Reading Settings
+		$page_on_front  = get_option('page_on_front') ;
+		$page_for_posts = get_option('page_for_posts');
+
+		// Get Page ID outside Loop
+		$page_id = $wp_query->get_queried_object_id();
+
+		// Blog Page or Front Page setting in Reading Settings
+		if ( $page_id == $page_for_posts || $page_id == $page_on_front ) {
+	        $id = $page_id;
+	    }
+	    else if ( is_singular() ) {
+	 		if ( is_attachment() ) {
+				$id = $post->post_parent;
+			}
+			else {
+				$id = $post->ID;
+			}
+		}
+
+		//Get appropriate metabox value of layout
+		if ( '' != $id ) {
+			$layout = get_post_meta( $id, 'catchresponsive-layout-option', true );
+		}
+		else {
+			$layout = 'default';
+		}
+
+		//Load options data
+		$options = catchresponsive_get_theme_options();
+
+		//check empty and load default
+		if ( empty( $layout ) || 'default' == $layout ) {
+			$layout = $options['theme_layout'];
+		}
+
+		return $layout;
+	}
+endif; //catchresponsive_get_theme_layout
 
 
 if ( ! function_exists( 'catchresponsive_archive_content_image' ) ) :
@@ -1514,3 +1557,77 @@ if ( ! function_exists( 'catchresponsive_post_navigation' ) ) :
 	}
 endif; //catchresponsive_post_navigation
 add_action( 'catchresponsive_after_post', 'catchresponsive_post_navigation', 10 );
+
+
+/**
+ * Migrate Logo to New WordPress core Custom Logo
+ *
+ *
+ * Runs if version number saved in theme_mod "logo_version" doesn't match current theme version.
+ */
+function catchresponsive_logo_migrate() {
+	$ver = get_theme_mod( 'logo_version', false );
+
+	// Return if update has already been run
+	if ( version_compare( $ver, '2.8' ) >= 0 ) {
+		return;
+	}
+
+	/**
+	 * Get Theme Options Values
+	 */
+	$options 	= catchresponsive_get_theme_options();
+
+	// If a logo has been set previously, update to use logo feature introduced in WordPress 4.5
+	if ( function_exists( 'the_custom_logo' ) ) {
+		if( isset( $options['logo'] ) && '' != $options['logo'] ) {
+			// Since previous logo was stored a URL, convert it to an attachment ID
+			$logo = attachment_url_to_postid( $options['logo'] );
+
+			if ( is_int( $logo ) ) {
+				set_theme_mod( 'custom_logo', $logo );
+			}
+		}
+
+  		// Update to match logo_version so that script is not executed continously
+		set_theme_mod( 'logo_version', '2.8' );
+	}
+
+}
+add_action( 'after_setup_theme', 'catchresponsive_logo_migrate' );
+
+
+/**
+ * Migrate Custom Favicon to WordPress core Site Icon
+ *
+ * Runs if version number saved in theme_mod "site_icon_version" doesn't match current theme version.
+ */
+function catchresponsive_site_icon_migrate() {
+	$ver = get_theme_mod( 'site_icon_version', false );
+
+	// Return if update has already been run
+	if ( version_compare( $ver, '2.8' ) >= 0 ) {
+		return;
+	}
+
+	/**
+	 * Get Theme Options Values
+	 */
+	$options 	= catchresponsive_get_theme_options();
+
+	// If a logo has been set previously, update to use logo feature introduced in WordPress 4.5
+	if ( function_exists( 'has_site_icon' ) ) {
+		if ( isset( $options['favicon'] ) && '' != $options['favicon'] ) {
+			// Since previous logo was stored a URL, convert it to an attachment ID
+			$site_icon = attachment_url_to_postid( $options['favicon'] );
+
+			if ( is_int( $site_icon ) ) {
+				update_option( 'site_icon', $site_icon );
+			}
+		}
+
+	  	// Update to match site_icon_version so that script is not executed continously
+		set_theme_mod( 'site_icon_version', '2.8' );
+	}
+}
+add_action( 'after_setup_theme', 'catchresponsive_site_icon_migrate' );

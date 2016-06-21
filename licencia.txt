@@ -1,6 +1,6 @@
 WordPress - Software de publicación web
 
-Derechos Reservados 2015 por los colaboradores
+Derechos Reservados 2016 por los colaboradores
 
 Este programa es software libre, puede redistribuirlo y/o modificarlo
 bajo los términos de la Licencia Pública General GNU según lo publicado por

@@ -40,47 +40,50 @@ function catchresponsive_customize_register( $wp_customize ) {
 	//Custom Controls
 	require get_template_directory() . '/inc/customizer-includes/catchresponsive-customizer-custom-controls.php';
 
-	// Custom Logo (added to Site Title and Tagline section in Theme Customizer)
-	$wp_customize->add_setting( 'catchresponsive_theme_options[logo]', array(
-		'capability'		=> 'edit_theme_options',
-		'default'			=> $defaults['logo'],
-		'sanitize_callback'	=> 'catchresponsive_sanitize_image'
-	) );
+	//@remove Remove this block when WordPress 4.8 is released
+	if ( ! function_exists( 'has_custom_logo' ) ) {
+		// Custom Logo (added to Site Title and Tagline section in Theme Customizer)
+		$wp_customize->add_setting( 'catchresponsive_theme_options[logo]', array(
+			'capability'		=> 'edit_theme_options',
+			'default'			=> $defaults['logo'],
+			'sanitize_callback'	=> 'catchresponsive_sanitize_image'
+		) );
 
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo', array(
-		'label'		=> __( 'Logo', 'catch-responsive' ),
-		'priority'	=> 100,
-		'section'   => 'title_tagline',
-        'settings'  => 'catchresponsive_theme_options[logo]',
-    ) ) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo', array(
+			'label'		=> __( 'Logo', 'catch-responsive' ),
+			'priority'	=> 100,
+			'section'   => 'title_tagline',
+	        'settings'  => 'catchresponsive_theme_options[logo]',
+	    ) ) );
 
-    $wp_customize->add_setting( 'catchresponsive_theme_options[logo_disable]', array(
-		'capability'		=> 'edit_theme_options',
-		'default'			=> $defaults['logo_disable'],
-		'sanitize_callback' => 'catchresponsive_sanitize_checkbox',
-	) );
+	    $wp_customize->add_setting( 'catchresponsive_theme_options[logo_disable]', array(
+			'capability'		=> 'edit_theme_options',
+			'default'			=> $defaults['logo_disable'],
+			'sanitize_callback' => 'catchresponsive_sanitize_checkbox',
+		) );
 
-	$wp_customize->add_control( 'catchresponsive_theme_options[logo_disable]', array(
-		'label'    => __( 'Check to disable logo', 'catch-responsive' ),
-		'priority' => 101,
-		'section'  => 'title_tagline',
-		'settings' => 'catchresponsive_theme_options[logo_disable]',
-		'type'     => 'checkbox',
-	) );
+		$wp_customize->add_control( 'catchresponsive_theme_options[logo_disable]', array(
+			'label'    => __( 'Check to disable logo', 'catch-responsive' ),
+			'priority' => 101,
+			'section'  => 'title_tagline',
+			'settings' => 'catchresponsive_theme_options[logo_disable]',
+			'type'     => 'checkbox',
+		) );
 
-	$wp_customize->add_setting( 'catchresponsive_theme_options[logo_alt_text]', array(
-		'capability'		=> 'edit_theme_options',
-		'default'			=> $defaults['logo_alt_text'],
-		'sanitize_callback'	=> 'sanitize_text_field',
-	) );
+		$wp_customize->add_setting( 'catchresponsive_theme_options[logo_alt_text]', array(
+			'capability'		=> 'edit_theme_options',
+			'default'			=> $defaults['logo_alt_text'],
+			'sanitize_callback'	=> 'sanitize_text_field',
+		) );
 
-	$wp_customize->add_control( 'catchresponsive_logo_alt_text', array(
-		'label'    	=> __( 'Logo Alt Text', 'catch-responsive' ),
-		'priority'	=> 102,
-		'section' 	=> 'title_tagline',
-		'settings' 	=> 'catchresponsive_theme_options[logo_alt_text]',
-		'type'     	=> 'text',
-	) );
+		$wp_customize->add_control( 'catchresponsive_logo_alt_text', array(
+			'label'    	=> __( 'Logo Alt Text', 'catch-responsive' ),
+			'priority'	=> 102,
+			'section' 	=> 'title_tagline',
+			'settings' 	=> 'catchresponsive_theme_options[logo_alt_text]',
+			'type'     	=> 'text',
+		) );
+	}
 
 	$wp_customize->add_setting( 'catchresponsive_theme_options[move_title_tagline]', array(
 		'capability'		=> 'edit_theme_options',
@@ -90,7 +93,7 @@ function catchresponsive_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'catchresponsive_theme_options[move_title_tagline]', array(
 		'label'    => __( 'Check to move Site Title and Tagline before logo', 'catch-responsive' ),
-		'priority' => 103,
+		'priority' => function_exists( 'has_custom_logo' ) ? 10 : 103,
 		'section'  => 'title_tagline',
 		'settings' => 'catchresponsive_theme_options[move_title_tagline]',
 		'type'     => 'checkbox',

@@ -296,7 +296,7 @@ class SimplePluginLogger extends SimpleLogger
 	 * Saves info about all installed plugins to an option.
 	 * When we are done logging then we remove the option.
 	 */
-        function save_versions_before_update($bool = null, $hook_extra = null) {
+    function save_versions_before_update($bool = null, $hook_extra = null) {
 
 		$plugins = get_plugins();
 
@@ -314,7 +314,7 @@ class SimplePluginLogger extends SimpleLogger
 	 * We detect when that transient is set and then we have all info needed to log the plugin delete
 	 *	 
 	 */
-	public function on_setted_transient_for_remove_files($transient, $value) {
+	public function on_setted_transient_for_remove_files( $transient = "", $value = "" ) {	
 
 		if ( ! $user_id = get_current_user_id() ) {
 			return;

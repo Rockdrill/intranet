@@ -3,10 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Catch Responsive\n"
-"Report-Msgid-Bugs-To: http://catchthemes.com/support-forum/forum/catch-"
-"responsive-free/\n"
-"POT-Creation-Date: 2016-03-03 14:20+0545\n"
-"PO-Revision-Date: 2016-03-03 14:20+0545\n"
+"Report-Msgid-Bugs-To: http://catchthemes.com/support-forum/forum/catch-responsive-"
+"free/\n"
+"POT-Creation-Date: 2016-04-11 21:54+0545\n"
+"PO-Revision-Date: 2016-04-11 21:54+0545\n"
 "Last-Translator: Catch Themes <info@catchthemes.com>\n"
 "Language-Team: Catch Themes <info@catchthemes.com>\n"
 "Language: hu_HU\n"
@@ -14,10 +14,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;esc_attr_e;esc_attr__;"
-"_nx:1,2,4c;esc_html__;esc_attr_x:1,2c\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;esc_attr_e;esc_attr__;_nx:1,2,4c;"
+"esc_html__;esc_attr_x:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-Bookmarks: -1,84,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-SearchPath-0: ..\n"
@@ -28,11 +28,11 @@ msgstr "Elnézést, a keresett oldal nem található."
 
 #: ../404.php:24
 msgid ""
-"It looks like nothing was found at this location. Maybe try one of the links "
-"below or a search?"
+"It looks like nothing was found at this location. Maybe try one of the links below or "
+"a search?"
 msgstr ""
-"Úgy tűnik, ezen a helyen nem található semmi. Próbálja meg az alábbi "
-"linkeket vagy a keresést."
+"Úgy tűnik, ezen a helyen nem található semmi. Próbálja meg az alábbi linkeket vagy a "
+"keresést."
 
 #: ../archive.php:30
 #, php-format
@@ -100,7 +100,7 @@ msgstr "Hangok"
 msgid "Chats"
 msgstr "Beszélgetés naplók"
 
-#: ../archive.php:69 ../sidebar.php:92
+#: ../archive.php:69 ../sidebar.php:57
 msgid "Archives"
 msgstr "Archívum"
 
@@ -134,30 +134,27 @@ msgstr "Nincs találat"
 
 #: ../content-none.php:21 ../no-results.php:20
 #, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"Készen áll az első bejegyzése közzétételére? <a href=\"%1$s\">Kezdje el itt!"
-"</a>."
+"Készen áll az első bejegyzése közzétételére? <a href=\"%1$s\">Kezdje el itt!</a>."
 
 #: ../content-none.php:25 ../no-results.php:24
 msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+"Sorry, but nothing matched your search terms. Please try again with some different "
+"keywords."
 msgstr "Sajnos nincs találat a kifejezésre. Próbálja meg más szavakkal!"
 
 #: ../content-none.php:30 ../no-results.php:29
 msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr "Úgy tűnik, nem található a kért anyag. Talán a kereső segíthet."
 
 #: ../content-page.php:28 ../content-single.php:31 ../content.php:46
 msgid "Pages:"
 msgstr "Oldalak:"
 
-#: ../content-page.php:35 ../inc/catchresponsive-core.php:659
-#: ../inc/catchresponsive-core.php:678 ../inc/catchresponsive-core.php:804
+#: ../content-page.php:35 ../inc/catchresponsive-core.php:686
+#: ../inc/catchresponsive-core.php:705 ../inc/catchresponsive-core.php:831
 msgid "Edit"
 msgstr "Szerkesztés"
 
@@ -194,122 +191,122 @@ msgstr "404-es hiba"
 msgid "Page %s"
 msgstr "Oldal %s"
 
-#: ../inc/catchresponsive-core.php:77 ../inc/catchresponsive-menus.php:27
+#: ../inc/catchresponsive-core.php:88 ../inc/catchresponsive-menus.php:27
 msgid "Primary Menu"
 msgstr "Elsődleges menü"
 
-#: ../inc/catchresponsive-core.php:78 ../inc/catchresponsive-menus.php:69
+#: ../inc/catchresponsive-core.php:89 ../inc/catchresponsive-menus.php:69
 msgid "Secondary Menu"
 msgstr "Másodlagos menü"
 
-#: ../inc/catchresponsive-core.php:162
+#: ../inc/catchresponsive-core.php:183
 msgctxt "Open Sans font: on or off"
 msgid "on"
 msgstr "on"
 
-#: ../inc/catchresponsive-core.php:168
+#: ../inc/catchresponsive-core.php:189
 msgctxt "Droid Sans font: on or off"
 msgid "on"
 msgstr "on"
 
-#: ../inc/catchresponsive-core.php:625
+#: ../inc/catchresponsive-core.php:652
 msgid "Post navigation"
 msgstr "Bejegyzés navigáció"
 
-#: ../inc/catchresponsive-core.php:634
+#: ../inc/catchresponsive-core.php:661
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Régebbi cikkek"
 
-#: ../inc/catchresponsive-core.php:635
+#: ../inc/catchresponsive-core.php:662
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Újabb cikkek <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../inc/catchresponsive-core.php:659
+#: ../inc/catchresponsive-core.php:686
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: ../inc/catchresponsive-core.php:669
+#: ../inc/catchresponsive-core.php:696
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"says\">szerint:</span>"
 
-#: ../inc/catchresponsive-core.php:675
+#: ../inc/catchresponsive-core.php:702
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s a %2$s-ből"
 
-#: ../inc/catchresponsive-core.php:682
+#: ../inc/catchresponsive-core.php:709
 msgid "Your comment is awaiting moderation."
 msgstr "A hozzászólása moderálásra vár."
 
-#: ../inc/catchresponsive-core.php:785
+#: ../inc/catchresponsive-core.php:812
 msgctxt "Used before publish date."
 msgid "<span class=\"screen-reader-text\">Posted on</span>"
 msgstr "<span class=\"screen-reader-text\">Közzétéve</span>"
 
-#: ../inc/catchresponsive-core.php:792
+#: ../inc/catchresponsive-core.php:819
 msgctxt "Used before post author name."
 msgid "<span class=\"screen-reader-text\">Author</span>"
 msgstr "<span class=\"screen-reader-text\">Szerző</span>"
 
-#: ../inc/catchresponsive-core.php:800
+#: ../inc/catchresponsive-core.php:827
 msgid "Leave a comment"
 msgstr "Szóljon hozzá!"
 
-#: ../inc/catchresponsive-core.php:800
+#: ../inc/catchresponsive-core.php:827
 msgid "1 Comment"
 msgstr "1 hozzászólás"
 
-#: ../inc/catchresponsive-core.php:800
+#: ../inc/catchresponsive-core.php:827
 msgid "% Comments"
 msgstr "% hozzászólás"
 
-#: ../inc/catchresponsive-core.php:821 ../inc/catchresponsive-core.php:829
+#: ../inc/catchresponsive-core.php:848 ../inc/catchresponsive-core.php:856
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ","
 
-#: ../inc/catchresponsive-core.php:824
+#: ../inc/catchresponsive-core.php:851
 msgctxt "Used before category names."
 msgid "<span class=\"screen-reader-text\">Categories</span>"
 msgstr "<span class=\"screen-reader-text\">Kategóriák</span>"
 
-#: ../inc/catchresponsive-core.php:832
+#: ../inc/catchresponsive-core.php:859
 msgctxt "Used before tag names."
 msgid "<span class=\"screen-reader-text\">Tags</span>"
 msgstr "<span class=\"screen-reader-text\">Címkék</span>"
 
-#: ../inc/catchresponsive-core.php:975
+#: ../inc/catchresponsive-core.php:1002
 #, php-format
 msgid "%s"
 msgstr "%s"
 
-#: ../inc/catchresponsive-core.php:1425
+#: ../inc/catchresponsive-core.php:1468
 msgid "Scroll Up"
 msgstr "Felfelé görgetés"
 
-#: ../inc/catchresponsive-core.php:1443
+#: ../inc/catchresponsive-core.php:1486
 msgid "Posted on"
 msgstr "Közzétéve"
 
-#: ../inc/catchresponsive-core.php:1444
+#: ../inc/catchresponsive-core.php:1487
 msgid "By"
 msgstr "Írta:"
 
-#: ../inc/catchresponsive-core.php:1486
+#: ../inc/catchresponsive-core.php:1529
 msgid "Next &rarr;"
 msgstr "Következő &rarr;"
 
-#: ../inc/catchresponsive-core.php:1487
+#: ../inc/catchresponsive-core.php:1530
 msgid "Next post:"
 msgstr "Következő bejegyzés"
 
-#: ../inc/catchresponsive-core.php:1489
+#: ../inc/catchresponsive-core.php:1532
 msgid "&larr; Previous"
 msgstr "&larr; Előző"
 
-#: ../inc/catchresponsive-core.php:1490
+#: ../inc/catchresponsive-core.php:1533
 msgid "Previous post:"
 msgstr "Előző bejegyzés"
 
@@ -323,11 +320,11 @@ msgstr "Catch Responsive is a Premium Responsive WordPress Theme"
 
 #: ../inc/catchresponsive-default-options.php:69
 msgid ""
-"This is promotion headline. You can edit this from Appearance -> Customize -"
-"> Theme Options -> Promotion Headline Options"
+"This is promotion headline. You can edit this from Appearance -> Customize -> Theme "
+"Options -> Promotion Headline Options"
 msgstr ""
-"Ez egy promóciós főcím. Szerkeszthető a Megjelenés -> Testreszabás -> Téma "
-"beállítások -> Promotion Headline Options menüpontban"
+"Ez egy promóciós főcím. Szerkeszthető a Megjelenés -> Testreszabás -> Téma beállítások "
+"-> Promotion Headline Options menüpontban"
 
 #: ../inc/catchresponsive-default-options.php:70
 msgid "Reviews"
@@ -703,12 +700,12 @@ msgstr "írta:"
 
 #: ../inc/catchresponsive-featured-content.php:57
 msgid ""
-"Here you can showcase the x number of Featured Content. You can edit this "
-"Headline, Subheadline and Feaured Content from \"Appearance -> Customize -> "
-"Featured Content Options\"."
+"Here you can showcase the x number of Featured Content. You can edit this Headline, "
+"Subheadline and Feaured Content from \"Appearance -> Customize -> Featured Content "
+"Options\"."
 msgstr ""
-"Itt tekintheti meg a kiemelt tartalmakat. Szerkeszthető a \"Megjelenés -> "
-"Testreszabás -> Kiemelt tartalom beállítások\" menüpontban."
+"Itt tekintheti meg a kiemelt tartalmakat. Szerkeszthető a \"Megjelenés -> Testreszabás "
+"-> Kiemelt tartalom beállítások\" menüpontban."
 
 #: ../inc/catchresponsive-featured-content.php:256
 #: ../inc/catchresponsive-featured-slider.php:178
@@ -728,7 +725,7 @@ msgid "Menu"
 msgstr "Menü"
 
 #: ../inc/catchresponsive-metabox.php:93
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:205
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:208
 msgid "Layout Options"
 msgstr "Oldalelrendezés"
 
@@ -737,7 +734,7 @@ msgid "Header Featured Image Options"
 msgstr "Fejrész kiemelt kép tulajdonságai"
 
 #: ../inc/catchresponsive-metabox.php:95
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:262
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:265
 msgid "Single Page/Post Image Layout "
 msgstr "Aloldal / Hozzászólás kép elrendezés"
 
@@ -751,11 +748,8 @@ msgstr "Elsődleges oldalsáv"
 
 #: ../inc/catchresponsive-widgets.php:36
 msgid ""
-"This is the primary sidebar if you are using a two or three column site "
-"layout option."
-msgstr ""
-"Ez az elsődleges oldalsáv, ha a két vagy három oszlopos elrendezést "
-"használja."
+"This is the primary sidebar if you are using a two or three column site layout option."
+msgstr "Ez az elsődleges oldalsáv, ha a két vagy három oszlopos elrendezést használja."
 
 #: ../inc/catchresponsive-widgets.php:43
 #, php-format
@@ -774,20 +768,15 @@ msgstr "Közösségi ikonok"
 #: ../inc/catchresponsive-widgets.php:70
 msgid "Use this widget to add Social Icons as a widget. "
 msgstr ""
-"Használja ezt a widgetet, hogy a közösségi ikonokat widgetként tudja "
-"megjeleníteni."
+"Használja ezt a widgetet, hogy a közösségi ikonokat widgetként tudja megjeleníteni."
 
 #: ../inc/catchresponsive-widgets.php:111
 msgid "Title (optional):"
 msgstr "Cím (opcionális):"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-custom-controls.php:56
-msgid ""
-"Hold down the Ctrl (windows) / Command (Mac) button to select multiple "
-"options."
-msgstr ""
-"A Ctrl (Windows) / Command (Mac) gomb lenyomva tartásával több is "
-"kiválasztható."
+msgid "Hold down the Ctrl (windows) / Command (Mac) button to select multiple options."
+msgstr "A Ctrl (Windows) / Command (Mac) gomb lenyomva tartásával több is kiválasztható."
 
 #: ../inc/customizer-includes/catchresponsive-customizer-custom-controls.php:69
 msgid "Theme Instructions"
@@ -855,11 +844,11 @@ msgstr "Alcím a kiemelt tartalomhoz"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-featured-content-setting.php:160
 msgid ""
-"Save and refresh the page if No. of Featured Content is changed (Max no of "
-"Featured Content is 20)"
+"Save and refresh the page if No. of Featured Content is changed (Max no of Featured "
+"Content is 20)"
 msgstr ""
-"Mentse és frissítse az oldalt, ha a kiemelt tartalmak száma változott "
-"(maximum 20 lehet)"
+"Mentse és frissítse az oldalt, ha a kiemelt tartalmak száma változott (maximum 20 "
+"lehet)"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-featured-content-setting.php:167
 msgid "No of Featured Content"
@@ -914,12 +903,9 @@ msgid "Select Slider Type"
 msgstr "Válasszon Slider típust"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-featured-slider.php:171
-msgid ""
-"Save and refresh the page if No. of Slides is changed (Max no of slides is "
-"20)"
+msgid "Save and refresh the page if No. of Slides is changed (Max no of slides is 20)"
 msgstr ""
-"Mentse és frissítse az oldalt, ha a Slider képek száma változott (maximum 20 "
-"lehet)"
+"Mentse és frissítse az oldalt, ha a Slider képek száma változott (maximum 20 lehet)"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-featured-slider.php:178
 msgid "No of Slides"
@@ -942,7 +928,7 @@ msgid "Featured Header Image Link URL"
 msgstr "Fejrész kiemelt kép URL címe"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-header-options.php:91
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:419
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:422
 msgid "Check to Open Link in New Window/Tab"
 msgstr "Hivatkozás megnyitása új ablakon/fülön"
 
@@ -957,8 +943,8 @@ msgstr "Közösségi linkek"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-social-icons.php:45
 msgid ""
-"Skype link can be of formats:<br>callto://+{number}<br> skype:{username}?"
-"{action}. More Information in readme file"
+"Skype link can be of formats:<br>callto://+{number}<br> skype:{username}?{action}. "
+"More Information in readme file"
 msgstr ""
 "Skype link a következő formátumú lehet:<br>callto://+{szám}<br> skype: "
 "{felhasználónév}?{művelet}. További információ a readme fájlban."
@@ -973,13 +959,12 @@ msgstr "Téma beállítások"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:29
 msgid ""
-"Breadcrumbs are a great way of letting your visitors find out where they are "
-"on your site with just a glance. You can enable/disable them on homepage and "
-"entire site."
+"Breadcrumbs are a great way of letting your visitors find out where they are on your "
+"site with just a glance. You can enable/disable them on homepage and entire site."
 msgstr ""
-"A Breadcrumbs (kenyérmorzsa) nagyszerű módja annak, hogy a látogatók egy "
-"pillantás alatt lássák, hogy a honlap melyik részén járnak éppen. "
-"Engedélyezheti / letilthatja őket a honlapon, vagy az egész webhelyen."
+"A Breadcrumbs (kenyérmorzsa) nagyszerű módja annak, hogy a látogatók egy pillantás "
+"alatt lássák, hogy a honlap melyik részén járnak éppen. Engedélyezheti / letilthatja "
+"őket a honlapon, vagy az egész webhelyen."
 
 #: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:31
 msgid "Breadcrumb Options"
@@ -1027,11 +1012,10 @@ msgstr "Tovább ..."
 
 #: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:146
 msgid ""
-"Only posts that belong to the categories selected here will be displayed on "
-"the front page"
+"Only posts that belong to the categories selected here will be displayed on the front "
+"page"
 msgstr ""
-"Csak az itt kiválasztott kategóriába tartozó hozzászólások jelennek meg a "
-"címlapon"
+"Csak az itt kiválasztott kategóriába tartozó hozzászólások jelennek meg a címlapon"
 
 #: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:149
 msgid "Homepage / Frontpage Options"
@@ -1041,192 +1025,188 @@ msgstr "Kezdőoldal / Főoldal tulajdonságai"
 msgid "Select Categories"
 msgstr "Kategória választása"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:170
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:172
 msgid "Remove Icon images to disable."
 msgstr "Távolítsa el az Ikonokat a kikapcsoláshoz"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:173
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:175
 msgid "Icon Options"
 msgstr "Ikon tulajdonságok"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:182
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:184
 msgid "Select/Add Favicon"
 msgstr "Honlap ikon kiválasztása / hozzáadása"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:193
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:195
 msgid ""
-"Web Clip Icon for Apple devices. Recommended Size - Width 144px and Height "
-"144px height, which will support High Resolution Devices like iPad Retina."
+"Web Clip Icon for Apple devices. Recommended Size - Width 144px and Height 144px "
+"height, which will support High Resolution Devices like iPad Retina."
 msgstr ""
-"Web Clip Icon Apple eszközökhöz. Ajánlott méret: 144px x 144px, amely "
-"támogatja a nagy felbontású készülékeket, mint pl. iPad Retina."
+"Web Clip Icon Apple eszközökhöz. Ajánlott méret: 144px x 144px, amely támogatja a nagy "
+"felbontású készülékeket, mint pl. iPad Retina."
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:194
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:196
 msgid "Select/Add Web Clip Icon"
 msgstr "Web Clip ikon kiválasztása / hozzáadása"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:222
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:225
 msgid "Default Layout"
 msgstr "Alapértelmezett elrendezés"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:242
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:245
 msgid "Archive Content Layout"
 msgstr "Archív tartalom elrendezése"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:273
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:276
 #, php-format
 msgid ""
-"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</"
-"a>.<br/>Infinite Scroll Options requires <a target=\"_blank\" href=\"%s"
-"\">JetPack Plugin</a> with Infinite Scroll module Enabled."
+"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>.<br/"
+">Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack Plugin</a> "
+"with Infinite Scroll module Enabled."
 msgstr ""
-"Az oldalszámozás a <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>-t "
-"igényli. <br/>A végtelen scrollozáshoz a <a target=\"_blank\" href=\"%s"
-"\">JetPack Plugin</a> szükséges, és engedélyezni kell benne az Infinite "
-"Scroll modult."
+"Az oldalszámozás a <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>-t igényli. "
+"<br/>A végtelen scrollozáshoz a <a target=\"_blank\" href=\"%s\">JetPack Plugin</a> "
+"szükséges, és engedélyezni kell benne az Infinite Scroll modult."
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:280
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:283
 #, php-format
 msgid ""
-"Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack "
-"Plugin</a> with Infinite Scroll module Enabled."
+"Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack Plugin</a> "
+"with Infinite Scroll module Enabled."
 msgstr ""
-"A végtelen scrollozáshoz a <a target=\"_blank\" href=\"%s\">JetPack Plugin</"
-"a> szükséges, és engedélyezni kell benne az Infinite Scroll modult."
+"A végtelen scrollozáshoz a <a target=\"_blank\" href=\"%s\">JetPack Plugin</a> "
+"szükséges, és engedélyezni kell benne az Infinite Scroll modult."
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:291
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:294
 #, php-format
-msgid ""
-"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</"
-"a>."
+msgid "Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>."
 msgstr ""
-"Az oldalszámozás a <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>-t "
-"igényli."
+"Az oldalszámozás a <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</a>-t igényli."
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:302
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:305
 msgid "Pagination Options"
 msgstr "Oldalszámozás tulajdonságai"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:319
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:322
 msgid "Pagination type"
 msgstr "Oldalszámozás típusa"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:328
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:331
 msgid "To disable the fields, simply leave them empty."
 msgstr "A mezők letiltásához egyszerűen csak hagyja őket üresen."
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:331
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:334
 msgid "Promotion Headline Options"
 msgstr "Promóciós főcím tulajdonságai"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:348
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:351
 msgid "Enable Promotion Headline on"
 msgstr "Promóciós főcím engedélyezése"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:362
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:365
 msgid "Appropriate Words: 10"
 msgstr "Megfelelő szavak: 10"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:363
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:366
 msgid "Promotion Headline Text"
 msgstr "Promóciós főcím szövege"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:376
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:379
 msgid "Appropriate Words: 15"
 msgstr "Megfelelő szavak: 15"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:377
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:380
 msgid "Promotion Subheadline Text"
 msgstr "Promóciós alcím szövege"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:390
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:393
 msgid "Appropriate Words: 3"
 msgstr "Megfelelő szavak: 3"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:391
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:394
 msgid "Promotion Headline Button Text "
 msgstr "Promóciós főcím gomb  szövege"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:405
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:408
 msgid "Promotion Headline Link"
 msgstr "Promóciós főcím linkje"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:431
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:434
 msgid "Scrollup Options"
 msgstr ""
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:441
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:444
 msgid "Check to disable Scroll Up"
 msgstr ""
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:450
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:453
 msgid "Change default placeholder text in Search."
 msgstr "Keresésben megjelenő alap szöveg megváltoztatása."
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:453
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:456
 msgid "Search Options"
 msgstr "Keresés opciók"
 
-#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:463
+#: ../inc/customizer-includes/catchresponsive-customizer-theme-options.php:466
 msgid "Default Display Text in Search"
 msgstr "Keresésben megjelenő alap szöveg"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:51
+#: ../inc/customizer-includes/catchresponsive-customizer.php:53
 msgid "Logo"
 msgstr "Logó"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:64
+#: ../inc/customizer-includes/catchresponsive-customizer.php:66
 msgid "Check to disable logo"
 msgstr "Logó kikapcsolása"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:78
+#: ../inc/customizer-includes/catchresponsive-customizer.php:80
 msgid "Logo Alt Text"
 msgstr "Logó szöveg"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:92
+#: ../inc/customizer-includes/catchresponsive-customizer.php:95
 msgid "Check to move Site Title and Tagline before logo"
 msgstr "Honlap címének és egysoros leírásának áthelyzése a logó elé"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:118
+#: ../inc/customizer-includes/catchresponsive-customizer.php:121
 msgid "Color Scheme"
 msgstr "Színséma"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:133
+#: ../inc/customizer-includes/catchresponsive-customizer.php:136
 msgid "Mobile Menu Color Scheme"
 msgstr ""
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:157
+#: ../inc/customizer-includes/catchresponsive-customizer.php:160
 msgid ""
-"Caution: Reset all settings to default. Refresh the page after save to view "
-"full effects."
+"Caution: Reset all settings to default. Refresh the page after save to view full "
+"effects."
 msgstr ""
-"Figyelem! Minden beállítás alapértékre állítása. Frissítse az oldalt, hogy "
-"lássa az eredményt."
+"Figyelem! Minden beállítás alapértékre állítása. Frissítse az oldalt, hogy lássa az "
+"eredményt."
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:159
+#: ../inc/customizer-includes/catchresponsive-customizer.php:162
 msgid "Reset all settings"
 msgstr "Minden beállítás visszaállítása"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:170
+#: ../inc/customizer-includes/catchresponsive-customizer.php:173
 msgid "Check to reset all settings to default"
 msgstr "Minden beállítás visszaállítása az alapértékre"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:180
-#: ../inc/customizer-includes/catchresponsive-customizer.php:191
+#: ../inc/customizer-includes/catchresponsive-customizer.php:183
+#: ../inc/customizer-includes/catchresponsive-customizer.php:194
 msgid "Important Links"
 msgstr "Fontos hivatkozások"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:226
+#: ../inc/customizer-includes/catchresponsive-customizer.php:229
 msgid "Upgrade To Pro &raquo;"
 msgstr "Frissítés Pro Verzióra"
 
-#: ../inc/customizer-includes/catchresponsive-customizer.php:228
+#: ../inc/customizer-includes/catchresponsive-customizer.php:231
 msgid ""
-"Some settings might be missing or disorganized in this version of WordPress. "
-"So we suggest you to upgrade to version 4.0 or better."
+"Some settings might be missing or disorganized in this version of WordPress. So we "
+"suggest you to upgrade to version 4.0 or better."
 msgstr ""
-"Néhány beállítás esetleg hiányzik, vagy szervezetlen ebben a WordPress "
-"verzióban. Javasoljuk, hogy frissítsen 4.0 vagy annál újabb verzóra."
+"Néhány beállítás esetleg hiányzik, vagy szervezetlen ebben a WordPress verzióban. "
+"Javasoljuk, hogy frissítsen 4.0 vagy annál újabb verzóra."
 
 #: ../no-results.php:14
 msgid "Error 404-Page NOT Found"
@@ -1247,28 +1227,26 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "Keresés"
 
-#: ../sidebar.php:75
+#: ../sidebar.php:40
 msgid "Primary Sidebar Widget Area"
 msgstr "Az elsődleges oldalsáv widget terület"
 
-#: ../sidebar.php:78
+#: ../sidebar.php:43
 msgid ""
-"This is the Primary Sidebar Widget Area if you are using a two or three "
-"column site layout option."
-msgstr ""
-"Ez az elsődleges oldalsáv, ha a két vagy három oszlopos elrendezést "
-"használja."
+"This is the Primary Sidebar Widget Area if you are using a two or three column site "
+"layout option."
+msgstr "Ez az elsődleges oldalsáv, ha a két vagy három oszlopos elrendezést használja."
 
-#: ../sidebar.php:79
+#: ../sidebar.php:44
 #, php-format
 msgid ""
-"By default it will load Search and Archives widgets as shown below. You can "
-"add widget to this area by visiting your <a href=\"%s\">Widgets Panel</a> "
-"which will replace default widgets."
+"By default it will load Search and Archives widgets as shown below. You can add widget "
+"to this area by visiting your <a href=\"%s\">Widgets Panel</a> which will replace "
+"default widgets."
 msgstr ""
-"Alapértelmezésben a Keresés és az Archívum widget fog megjelenni. Felvehet "
-"widgeteket erre a területre, ha ellátogat a <a href=\"%s\">Widget Panel</a> "
-"oldalra, amelyel lecserélheti az alapértelmezett widgeteket."
+"Alapértelmezésben a Keresés és az Archívum widget fog megjelenni. Felvehet widgeteket "
+"erre a területre, ha ellátogat a <a href=\"%s\">Widget Panel</a> oldalra, amelyel "
+"lecserélheti az alapértelmezett widgeteket."
 
 #~ msgid "StumbleUpon"
 #~ msgstr "StumbleUpon"
@@ -1301,22 +1279,19 @@ msgstr ""
 #~ msgstr "Másodlagos oldalsáv"
 
 #~ msgid ""
-#~ "This is the secondary sidebar if you are using a three column site layout "
-#~ "option."
-#~ msgstr ""
-#~ "Ez a másodlagos oldalsáv, ha a három oszlopos elrendezést használja."
+#~ "This is the secondary sidebar if you are using a three column site layout option."
+#~ msgstr "Ez a másodlagos oldalsáv, ha a három oszlopos elrendezést használja."
 
 #~ msgid ""
-#~ "True: Fixes the height overlap issue. Slideshow will start as soon as two "
-#~ "slider are available. Slide may display in random, as image is fetch."
-#~ "<br>Wait: Fixes the height overlap issue.<br> Slideshow will start only "
-#~ "after all images are available."
+#~ "True: Fixes the height overlap issue. Slideshow will start as soon as two slider "
+#~ "are available. Slide may display in random, as image is fetch.<br>Wait: Fixes the "
+#~ "height overlap issue.<br> Slideshow will start only after all images are available."
 #~ msgstr ""
-#~ "Igen: Kijavítja a magasság átfedési porblémákat. A diavetítés elindul, "
-#~ "ahogy már két kép a rendelkezésre áll. A megjelenítés véletlenszerű lehet "
-#~ "a képek letöltödésének sorrendje miatt. <br> Várjon: Kijavítja a magasság "
-#~ "átfedési problémákat. <br> A diavetítés csak akkor veszi kezdetét, ha az "
-#~ "összes kép a rendelkezésre áll."
+#~ "Igen: Kijavítja a magasság átfedési porblémákat. A diavetítés elindul, ahogy már "
+#~ "két kép a rendelkezésre áll. A megjelenítés véletlenszerű lehet a képek "
+#~ "letöltödésének sorrendje miatt. <br> Várjon: Kijavítja a magasság átfedési "
+#~ "problémákat. <br> A diavetítés csak akkor veszi kezdetét, ha az összes kép a "
+#~ "rendelkezésre áll."
 
 #~ msgid "Excerpt length. Default is 40 words"
 #~ msgstr "Kivonat hossza. Alapértelmezett a 40 szó"
@@ -1325,10 +1300,9 @@ msgstr ""
 #~ msgstr "Másodlagos oldalsáv widget terület"
 
 #~ msgid ""
-#~ "This is the Secondary Sidebar Widget Area if you are using a three column "
-#~ "site layout option."
-#~ msgstr ""
-#~ "Ez a másodlagos oldalsáv, ha a három oszlopos elrendezést használja."
+#~ "This is the Secondary Sidebar Widget Area if you are using a three column site "
+#~ "layout option."
+#~ msgstr "Ez a másodlagos oldalsáv, ha a három oszlopos elrendezést használja."
 
 #~ msgid "Featured Content Settings"
 #~ msgstr "Kiemelt tartalom beállításai"

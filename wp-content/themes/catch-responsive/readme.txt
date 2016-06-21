@@ -1,11 +1,11 @@
 === Catch Responsive ===
 
-Catch Responsive is an extremely flexible and customizable Responsive WordPress theme suitable for almost any kind of professional website. It is based on responsive web design where each element has been carefully configured for perfect display on all devices and platforms. It is built in HTML5, CSS3 and WordPress Theme Customizer for real time customization. It comes with a wide variety of options so you can modify layout, styling, featured content, promotion headline, featured slider, pagination, icons, menus, breadcrumb, widgets and much more, directly from theme customizer. This theme is translation ready and also currently translated in Swedish, French, Brazilian Portuguese, German, Russian, Ukrainian and Polish languages. Check out Theme Instructions at http://catchthemes.com/theme-instructions/catch-responsive/, Support at http://catchthemes.com/support/ and Demo at http://catchthemes.com/demo/catch-responsive/
+Catch Responsive is an extremely flexible and customizable Responsive WordPress theme suitable for almost any kind of professional website. It is based on responsive web design where each element has been carefully configured for perfect display on all devices and platforms. It is built in HTML5, CSS3 and WordPress Theme Customizer for real time customization. It comes with a wide variety of options so you can modify layout, styling, featured content, promotion headline, featured slider, pagination, icons, menus, breadcrumb, widgets and much more, directly from theme customizer. This theme is translation ready and also currently translated in Swedish, French, Brazilian Portuguese, German, Russian, Ukrainian and Polish languages. Check out Theme Instructions at https://catchthemes.com/theme-instructions/catch-responsive/, Support at https://catchthemes.com/support/ and Demo at https://catchthemes.com/demo/catch-responsive/
 
 == Support ==
 
-Support: http://catchthemes.com/support/
-Support Forum: http://catchthemes.com/support-forum/forum/catch-responsive-free/
+Support: https://catchthemes.com/support/
+Support Forum: https://catchthemes.com/support-forum/forum/catch-responsive-free/
 
 
 == Translation ==
@@ -28,7 +28,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Catch Responsive WordPress Theme, Copyright 2015 Catchthemes.com
 Catch Responsive is distributed under the terms of the GNU General Public License v3
 
-Catch Responsive is based on Catch Base theme http://catchthemes.com/themes/catch-base/ 
+Catch Responsive is based on Catch Base theme https://catchthemes.com/themes/catch-base/ 
 
 Images used are released under the CC0 license
 1. http://pixabay.com/en/buddha-deity-himalayan-park-nepal-100706/ - header image
@@ -71,11 +71,11 @@ JS Files
 
 Catch Responsive theme supports two custom menus that is primary and secondary. 
 To create a custom menu, go to Appearance -> Menus in your dashboard. 
-For more about custom menu, check out http://catchthemes.com/blog/custom-menus-wordpress-themes/
+For more about custom menu, check out https://catchthemes.com/blog/custom-menus-wordpress-themes/
 
 = Featured Image =
 
-This theme relies heavily on Featured Images. If your post/page is missing a Featured Image, the post image will not show up on homepage, on archived pages and on Featured Page Slider. For more about featured image, check out http://catchthemes.com/blog/videos-blog/video-series-adding-featured-image-wordpress-postpage/
+This theme relies heavily on Featured Images. If your post/page is missing a Featured Image, the post image will not show up on homepage, on archived pages and on Featured Page Slider. For more about featured image, check out https://catchthemes.com/blog/videos-blog/video-series-adding-featured-image-wordpress-postpage/
 
 If you are migrating your old site to this new them then you need to regenerate thumbnails. You can do that easily with this plugin: https://wordpress.org/plugins/regenerate-thumbnails/. This plugin allows you to regenerate your thumbnails after changing the thumbnail sizes, which occurs by switching from one theme to another.
 
@@ -151,9 +151,9 @@ Number:
 
 = Theme Instructions =
 
-For detail instructions, check out theme instructions page at http://catchthemes.com/theme-instructions/catch-responsive/
+For detail instructions, check out theme instructions page at https://catchthemes.com/theme-instructions/catch-responsive/
 
 
 == Change Log ==
 
-Please refer to changelog.txt file or change log page at http://catchthemes.com/changelogs/catch-responsive-theme/
+Please refer to changelog.txt file or change log page at https://catchthemes.com/changelogs/catch-responsive-theme/
